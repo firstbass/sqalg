@@ -215,9 +215,7 @@ function processTree(tree)
     v['change'] = 0;
     v['shift'] = 0;
     v['ancestor'] = v;
-
-
-    v.children.forEach(function (self, i, arr) {
+    v['children'].forEach(function (self, i, arr) {
       // add properties related to parent
       self['parent'] = v;
       v['number'] = i + 1;

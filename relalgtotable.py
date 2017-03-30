@@ -3,6 +3,7 @@
 
 
 import re
+import os
 import json
 from subprocess import call
 import sys
@@ -238,20 +239,12 @@ def createTree(expr):
             tree['children'] += [first_node];
             print(tree);
             return tree;        
-    
-    
-    
-    # while there is an operator at the beginning of the string
-    #   process that operator and obtain its things
-    #   create a node for that thing and get the stuff
-    
-    #return json.dumps(tree)
 
-tree_text = json.dumps(createTree(test));
-tree_text = unicode(tree_text);
-with io.open('json_data.json', 'w', encoding='utf-8') as f:
-  f.write(json.dumps(tree_text, ensure_ascii=False))
-#print(test);
-#print(parseOperator('PROJECT', test))
-#print(createTree(test));
-check_output('.\\phantom\\bin\\phantomjs.exe --debug=true github.js hullaballoo.jpg')
+def createTreeImage(query, image_name):
+    tree_text = unicode(json.dumps(createTree(query)));
+    with io.open('data.json', 'w', encoding='utf-8') as f:
+        f.write(tree_text);
+    check_output('.\\phantom\\bin\\phantomjs.exe github.js "' + image_name + '"')
+    os.remove('data.json');
+
+createTreeImage(test, 'hoobaloo');
