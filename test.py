@@ -129,7 +129,7 @@ def normalize_without_ands(query):
     #print(owhere);
 
     # Accept Not IN
-    phrase_before_not_in = '(\w+)\s+NOT IN';
+    phrase_before_not_in = '([\d\.\w]+)\s+NOT IN';
     pb4ni = re.search(phrase_before_not_in, owhere);
     if pb4ni: #adjust query to be in NOT EXISTS form
       #print('found NOT IN');

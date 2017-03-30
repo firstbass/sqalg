@@ -42,7 +42,7 @@ function get_lmost_sibling(self)
 function buchheim(tree)
 {
   var intermediate = firstwalk(tree);
-  second_walk(intermediate);
+  secondwalk(intermediate);
   return intermediate;
 }
 
@@ -180,6 +180,6 @@ function secondwalk(v, m, depth)
   v.y = depth;
 
   v.children.forEach(function (self) {
-    second_walk(self, m+v.mod, depth + 1);
+    secondwalk(self, m+v.mod, depth + 1);
   })
 }

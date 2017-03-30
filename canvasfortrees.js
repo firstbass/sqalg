@@ -259,4 +259,10 @@ function PrintTree(context, tree)
       queue.push(self);
     })
   }
+  context.globalCompositeOperation = 'destination-over';
+  context.beginPath();
+  context.fillStyle = STCOLOR.WHITE;
+  context.fillRect(0,0,CENTER_X * 2, CENTER_Y * 2);
+  context.closePath();
+  context.globalCompositeOperation = 'source-over';
 }

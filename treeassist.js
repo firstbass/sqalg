@@ -47,14 +47,15 @@ function printNode(context, node, x, y)
 {
 
   var r;
-
+  if (!node)
+    console.log(51,'null node cant print');
   var arr = parseString(node.text);
   var pre = arr[0];
   var mid = arr[1];
   var post = arr[2];
   switch (node['type'])
   {
-    case 'operation':
+    case 'operator':
       r = createText(context, pre, mid, post, x, y, undefined, true, STCOLOR.ORIENT);
       break;
     case 'alias':
@@ -83,7 +84,7 @@ function parseString(str)
   var pre = '';
   var mid = str;
   var post = '';
-  if (str.startsWith('_'))
+  if (str.indexOf('_') == 0)
   {
     // has a prefix _{prefix}
     console.log(str, 'has a prefix');
@@ -92,7 +93,7 @@ function parseString(str)
     pre = str.slice(first_brace_index+1, last_brace_index);
     mid = mid.slice(last_brace_index + 1);
   }
-  if (str.endsWith('}'))
+  if (str.indexOf('}') == str.length - 1)
   {
     // has a suffix _{suffix}
     var first_brace_index = str.lastIndexOf('\{');
