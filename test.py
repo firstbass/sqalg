@@ -152,6 +152,7 @@ def normalize_without_ands(query):
     #accept ALL
     owhere_arr = re.split('\s+', owhere);
     #print(owhere_arr);
+    #may need to do this in REGEX to avoid issues
     if (owhere_arr.count('ALL') != 0):
       all_index = owhere_arr.index('ALL');
       if (all_index != -1): #found ALL
@@ -167,6 +168,7 @@ def normalize_without_ands(query):
     #accept ANY
     owhere_arr = re.split('\s+', owhere);
     #print(owhere_arr);
+    #may need to do this with REGEX to avoid issues
     if (owhere_arr.count('ANY') > 0):
       any_index = owhere_arr.index('ANY');
       #print(any_index);
@@ -284,8 +286,32 @@ def fix_correlated_subquery(query, parent_rename_map = { }):
       #print('entry end');
   query = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere + subquery;
   return query;
+#NOT FINISHED, NAIVE AND DOES NOT APPLY ANY LOGICAL CORRECTIONS
 
-
+def decorrelate_disconjuctive(query):
+  ORcond = [];
+  ANDcond = '';
+  query=re.sub(';','',query);
+  (oarr, oselect, owhere, ofrom,ocross) = select_from_where_nosubquery(query);
+  conditions = re.split('[\s]+(AND|OR)[\s]+', owhere);
+  for entry in range(len(conditions)):
+    if(entry==0):
+      ANDcond += conditions[entry];
+    elif(conditions[entry]=='OR'):
+      ORcond.append(conditions[entry+1]);
+      entry += 1;
+    elif(conditions[entry]=='AND'):
+      ANDcond += ' AND ' + conditions[entry+1];
+      entry += 1;
+  #  ORcond = re.split('[\s]+OR[\s]+',conditions[entry]);
+  print('ORcond: ', ORcond, 'ANDwOR: ', conditions);
+  query='SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + ANDcond;
+  print(query)
+  for entry in range(len(ORcond)):
+    query += '\n UNION ' + ' SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + ORcond[entry];
+  query +=';';
+  print(query);
+  return query;
 #Transform a conjunctive query to relational algebra
 #Precondition: Query already has context relations take into account
 #Postcondition: query in its relational algebra form
@@ -297,12 +323,12 @@ def decorrelate_conjunctive(query):
   #print('175', query);
   (oarr, oselect, owhere, ofrom,ocross) = select_from_where_nosubquery(query);
   #
-#print(237,ofrom);
+  #print(237,ofrom);
   if hasSubquery(query): #make sure we're working from innermost query
     subquery = getNextSubQuery(query);
     (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
 
-  owhere_arr = re.split('AND', owhere);
+  owhere_arr = re.split('[\s]+AND[\s]+', owhere);
   #print(owhere_arr)
   for entry in owhere_arr: # go through and decorrelate each EXISTS/NOT EXISTS query
     if 'EXISTS' not in entry:
@@ -352,21 +378,27 @@ def decorrelate_conjunctive(query):
 
 
   #'\w+[\w\d]*'
-  return? rel_alg;
+  return rel_alg;
 q3 =''' SELECT    SNAME
 FROM       SAILORS 
 WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
                           FROM     RESERVES 
-                          WHERE RESERVES.SID=10) AND
+                          WHERE RESERVES.SID=10) OR
          SAILORS.SID IN (SELECT RESRVES.SID
                          FROM RESERVES
-                         WHERE RESERVES.SID<>10);
+                         WHERE RESERVES.SID<>10 AND RESERVES.BID=5);
 '''
+
+q4='''SELECT SNAME
+FROM SAILORS, RESERVES
+WHERE SAILORS.SID = 5 
+      OR(RESERVES.SID = 10 AND RESERVES.BID=5)
+      AND RESERVES.SID=SAILORS.SID;'''
 #test='';
 #while(test!=)
-
 print '---------';
+decorrelate_disconjuctive(q3)
 #print(fix_correlated_subquery(q2));
 #print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q3))));
-print(normalize_without_ands(q3));
+#print(normalize_without_ands(q3));
 #RENAMEALL = A Table that needs all of its attributes to be projected
