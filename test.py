@@ -25,26 +25,26 @@ def comp_op(op):
 #Preconditions: Input is a the operands to a from list
 #Postconditions: Output is a general relational algebra statement
 def from_list_to_relalg(from_list):
-  print(28);
+  #print(28);
   from_arr = from_list.split(',') #separate the input from list by commas
-  print(from_arr);
+  #print(from_arr);
   #print(from_arr);
   from_list = ''; #NO LONGER NECESSARY
   #go through the different entries in the comma separated list (CSL) and sanitize the RENAMEALL flag into RENAME.
   for i in range(len(from_arr)):
-    print(33);
+    #print(33);
     if '{' in from_arr[i]: #Due to how we have documented the code, 
-      print(35);
-      print(from_arr[i]);
+      #print(35);
+      #print(from_arr[i]);
       #find if RENAMEALL is within the entry we are looking at
       match = re.search('RENAMEALL\_\{[\w\d]+\}\([\w\d]+\)', from_arr[i]);
-      print(match);
-      print(37);
+      #print(match);
+      #print(37);
       #find the new name of the table
       rename = from_arr[i][from_arr[i].index('{')+1:from_arr[i].index('}')];
       #find the original name of the table
       table_name = from_arr[i][from_arr[i].index('(')+1:from_arr[i].index(')')]
-      print(rename, table_name);
+      #print(rename, table_name);
       #if the original name of the table is the same as  the renamed value, then put the original table value down. 
       if (table_name == rename):
         from_arr[i] = re.sub('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', table_name, from_arr[i], count = 1)
@@ -57,7 +57,7 @@ def from_list_to_relalg(from_list):
   for i in range(len(from_arr)):
     from_arr[i].strip();
     word_arr = re.findall('\w+', from_arr[i]);
-    print(45,word_arr);
+    #print(45,word_arr);
     #if there is more than word in this entry, then there must be a renamed value. luckily, the original
     #table name is always the first entry, and the renamed value is always the last entry.
     if len(word_arr) > 1:
@@ -125,6 +125,7 @@ def normalize_without_ands(query):
     #print( iselect, iwhere, ifrom);
     #phrase_before_in, iselect, iwhere
     if (iwhere != ''):
+      iwhere=iwhere[:-1];
       iwhere += ' AND ';
     #print(owhere);
 
@@ -139,7 +140,7 @@ def normalize_without_ands(query):
       #print(owhere);
 
     #accept in
-    phrase_before_in = '(\w+)\s+IN';
+    phrase_before_in = '([\d\.\w+])\s+IN';
     pb4i = re.search(phrase_before_in, owhere);
     if pb4i: #adjust query to be in EXISTS form
       #print('found IN');
@@ -150,7 +151,7 @@ def normalize_without_ands(query):
 
     #accept ALL
     owhere_arr = re.split('\s+', owhere);
-    print(owhere_arr);
+    #print(owhere_arr);
     if (owhere_arr.count('ALL') != 0):
       all_index = owhere_arr.index('ALL');
       if (all_index != -1): #found ALL
@@ -160,12 +161,12 @@ def normalize_without_ands(query):
         pb4all = owhere_arr[op_index-1];
         iwhere += pb4all + comp_op(owhere_arr[op_index]) + iselect; #invert the logic and add it to inner where
         #print(iwhere);
-        owhere = re.sub('(\w+)\s+[><=]+\s+ALL','NOT EXISTS', owhere) #change statement to NOT EXISTS
+        owhere = re.sub('([\d\.\w]+)\s+[><=]+\s+ALL','NOT EXISTS', owhere) #change statement to NOT EXISTS
         #print(owhere);
 
     #accept ANY
     owhere_arr = re.split('\s+', owhere);
-    print(owhere_arr);
+    #print(owhere_arr);
     if (owhere_arr.count('ANY') > 0):
       any_index = owhere_arr.index('ANY');
       #print(any_index);
@@ -194,7 +195,7 @@ def normalize_without_ands(query):
         pb4op = owhere_arr[op_index - 1];
         iwhere += pb4op + op + iselect;#insert conidition with operator into inner select
         #print(iwhere);
-        owhere = re.sub('(\w+)\s+[><=]+','EXISTS', owhere) #change statement to EXISTS
+        owhere = re.sub('([\d\.\w]+)\s+[><=]+','EXISTS', owhere) #change statement to EXISTS
         #print(owhere);
 
     subquery_text = 'SELECT ' + iselect + ' FROM ' + ifrom + ' WHERE ' + iwhere;
@@ -203,6 +204,7 @@ def normalize_without_ands(query):
     query_text += subquery_text + ')';
 
     #print(query_text);
+    return query_text;
     #should we return query_text?
 
 #Get a list of what all functions were renamed, for context relations
@@ -267,7 +269,7 @@ def fix_correlated_subquery(query, parent_rename_map = { }):
         
       else: #the query is simply a single word, we must check if the attribute works in the proper spot
         flag = False;
-        print(rename_map);
+        #print(rename_map);
         for table in rename_map.values():
           if entry in schema[table].keys():
             #we got one that's good - the attribute is in a directly related table
@@ -279,7 +281,7 @@ def fix_correlated_subquery(query, parent_rename_map = { }):
             if entry in schema[table]:
               #found it
               ofrom = 'CROSS(RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom + ')';
-      print('entry end');
+      #print('entry end');
   query = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere + subquery;
   return query;
 
@@ -291,24 +293,25 @@ def decorrelate_conjunctive(query):
   # already added context relations to the from list
   subquery = '';
   subquery_free_part = '';
-  print(query);
+  #print(query);
   #print('175', query);
   (oarr, oselect, owhere, ofrom,ocross) = select_from_where_nosubquery(query);
-  print(237,ofrom);
+  #
+#print(237,ofrom);
   if hasSubquery(query): #make sure we're working from innermost query
     subquery = getNextSubQuery(query);
     (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
 
   owhere_arr = re.split('AND', owhere);
-  print(owhere_arr)
+  #print(owhere_arr)
   for entry in owhere_arr: # go through and decorrelate each EXISTS/NOT EXISTS query
     if 'EXISTS' not in entry:
-      print('subquery free part is', entry);
+      #print('subquery free part is', entry);
       subquery_free_part = entry #no need to add more tables to from list
     elif 'NOT EXISTS' in entry:
-      print 'exists found';
-      print('subquery: ', subquery);
-      print(ifrom);
+      #print 'exists found';
+      #print('subquery: ', subquery);
+      #print(ifrom);
 
       context_relations = re.findall('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', ifrom);
       attrs = '';
@@ -320,12 +323,12 @@ def decorrelate_conjunctive(query):
         natty_join = 'ANTIJOIN(' + from_list_to_relalg(ofrom) + ',' + 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + ')';
         
         rel_alg = 'PROJECT_{' + oselect + '}(' + 'SELECT_{' + subquery_free_part + '}(' + natty_join + '))'
-        print(rel_alg);
+        #print(rel_alg);
 
     elif 'EXISTS' in entry:
-      print 'exists found';
-      print('subquery: ', subquery);
-      print(ifrom);
+      #print 'exists found';
+      #print('subquery: ', subquery);
+      #print(ifrom);
 
       context_relations = re.findall('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', ifrom);
       attrs = '';
@@ -337,7 +340,7 @@ def decorrelate_conjunctive(query):
         natty_join = 'NATURALJOIN(' + from_list_to_relalg(ofrom) + ',' + 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + ')';
         
         rel_alg = 'PROJECT_{' + oselect + '}(' + 'SELECT_{' + subquery_free_part + '}(' + natty_join + '))'
-        print(rel_alg);
+        #print(rel_alg);
                       #(ofrom list) natural join proj')ect(context_relations on inner query)select(where_list)(on (cross product of inner-from)
     # if the entry does not contain EXISTS or NOT EXISTS
     #remove select list from subquery
@@ -349,10 +352,21 @@ def decorrelate_conjunctive(query):
 
 
   #'\w+[\w\d]*'
-  return query;
-
+  return? rel_alg;
+q3 =''' SELECT    SNAME
+FROM       SAILORS 
+WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
+                          FROM     RESERVES 
+                          WHERE RESERVES.SID=10) AND
+         SAILORS.SID IN (SELECT RESRVES.SID
+                         FROM RESERVES
+                         WHERE RESERVES.SID<>10);
+'''
+#test='';
+#while(test!=)
 
 print '---------';
 #print(fix_correlated_subquery(q2));
-print(decorrelate_conjunctive(fix_correlated_subquery(q2)));
+#print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q3))));
+print(normalize_without_ands(q3));
 #RENAMEALL = A Table that needs all of its attributes to be projected
