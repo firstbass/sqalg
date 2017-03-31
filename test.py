@@ -352,7 +352,7 @@ def decorrelate_conjunctive(query):
 
 
   #'\w+[\w\d]*'
-  return? rel_alg;
+  return rel_alg;
 q3 =''' SELECT    SNAME
 FROM       SAILORS 
 WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
