@@ -117,6 +117,7 @@ def select_from_where_nosubquery(query):
 ###############################################
 def normalize_without_ands(query):
   (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+  subquery_text='';
   #print(oselect, owhere, ofrom, ocross)
   #make sure we are working from the query above the outermost query, and solve inward-out
   if hasSubquery(query):
@@ -201,12 +202,12 @@ def normalize_without_ands(query):
         #print(owhere);
 
     subquery_text = 'SELECT ' + iselect + ' FROM ' + ifrom + ' WHERE ' + iwhere;
-    query_text = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere;
+  query_text = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere;
 
-    query_text += subquery_text + ')';
+  query_text += subquery_text + ')';
 
     #print(query_text);
-    return query_text;
+  return query_text;
     #should we return query_text?
 
 #Get a list of what all functions were renamed, for context relations
