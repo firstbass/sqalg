@@ -389,15 +389,23 @@ WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
                          WHERE RESERVES.SID<>10 AND RESERVES.BID=5);
 '''
 
+
 q4='''SELECT SNAME
 FROM SAILORS, RESERVES
 WHERE SAILORS.SID = 5 
       OR(RESERVES.SID = 10 AND RESERVES.BID=5)
       AND RESERVES.SID=SAILORS.SID;'''
+
+q5 =''' SELECT    SNAME
+FROM       SAILORS 
+WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
+                          FROM     RESERVES 
+                          WHERE RESERVES.SID=10)'''
 #test='';
 #while(test!=)
 print '---------';
-decorrelate_disconjuctive(q3)
+#decorrelate_disconjuctive(q3)
+normalize_without_ands(q4);
 #print(fix_correlated_subquery(q2));
 #print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q3))));
 #print(normalize_without_ands(q3));
