@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import re
-import string
 from queries import *
 #Returns the inverse operation for a given comparison operation
 #Preconditions: Input is an operation string
@@ -90,11 +89,10 @@ def relalg(select_list, from_list, where_list):
 #Postconditions: the split query is returned, the contents of the select_list, from_list, 
 #and where_list are returned, and the from_list in relational algebra is returned.
 def select_from_where_nosubquery(query):
+  query = re.sub('[\n\s]+',' ', query);
   SELECT_FROM_WHERE = '(SELECT|FROM|WHERE)'# ([\W\w]+) FROM ([\W\w]+) WHERE ([\W\w]+)';
   arr = re.split(SELECT_FROM_WHERE, query);
 
-
-  q1 = re.sub('[\n\s]+', ' ', query);
 
   select_list = arr[arr.index('SELECT') + 1];
   from_list = arr[arr.index('FROM') + 1];
@@ -107,6 +105,85 @@ def select_from_where_nosubquery(query):
   #return 'PROJECT_{' + select_list + '}(SELECT_{' + where_list + '}(' + cross_text + '))';
   return (arr, select_list, where_list, from_list, cross_text);
 #print(select_from_where_nosubquery(q1));
+def find_parentheses(s):
+    """ Find and return the location of the matching parentheses pairs in s.
+
+    Given a string, s, return a dictionary of start: end pairs giving the
+    indexes of the matching parentheses in s. Suitable exceptions are
+    raised if s contains unbalanced parentheses.
+
+    """
+
+    # The indexes of the open parentheses are stored in a stack, implemented
+    # as a list
+
+    stack = []
+    parentheses_locs = {}
+    for i, c in enumerate(s):
+        if c == '(':
+            stack.append(i)
+        elif c == ')':
+            try:
+                parentheses_locs[stack.pop()] = i
+            except IndexError:
+                raise IndexError('Too many close parentheses at index {}'
+                                                                .format(i))
+    if stack:
+        raise IndexError('No matching close parenthesis to open parenthesis '
+                         'at index {}'.format(stack.pop()))
+    return parentheses_locs
+
+
+def normalize_with_ands(query):
+  (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+  
+  new_where = '';
+  new_str = ' '.join(oarr[oarr.index('WHERE')+1:])
+  new_str = re.sub('[\n\s]+',' ', new_str)
+
+  parens = find_parentheses(new_str)
+  
+  ands = re.finditer('\s+AND\s+', new_str)
+  actual_ands = [];
+  sub_wheres = [];
+  for a in ands:
+      a_index = a.start();
+      is_separator = True
+      for op in parens:
+          cp = parens[op];
+          if a_index > op and a_index < cp:
+              is_separator = False;
+      if is_separator:
+          actual_ands += [a];
+  if len(actual_ands) == 0:
+      print(162);
+      return normalize_without_ands(query);
+  else:
+      for ai in range(len(actual_ands)):
+          #print(ai);
+          
+          if ai == len(actual_ands) - 1:
+             sub_wheres += [new_str[actual_ands[ai].end():]];
+          if ai == 0:
+              sub_wheres += [new_str[:actual_ands[ai].start()]]
+          else:
+              sub_wheres += [new_str[actual_ands[ai-1].end():actual_ands[ai].start()]]
+  
+      for where in sub_wheres:
+            subwheretext = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + where;
+            normalized_subpart = normalize_with_ands(subwheretext);
+            if new_where == '':
+                new_where = normalized_subpart[normalized_subpart.index('WHERE')+len('WHERE'):]
+            else:
+                new_where += ' AND ' +normalized_subpart[normalized_subpart.index('WHERE')+len('WHERE'):]
+  return 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + new_where;
+
+  #print(query_text);
+  #return query_text;
+  #should we return query_text?
+
+
+
 
 #Normalize subqueries to be in EXISTS or NOT EXISTS form
 #Preconditions: Query is proper SQL
@@ -122,6 +199,7 @@ def normalize_without_ands(query):
   #make sure we are working from the query above the outermost query, and solve inward-out
   if hasSubquery(query):
     nextsub = getNextSubQuery(query)
+    nextsub = normalize_with_ands(nextsub);
     (iarr, iselect, iwhere, ifrom,icross) = select_from_where_nosubquery(nextsub);
     #print( iselect, iwhere, ifrom);
     #phrase_before_in, iselect, iwhere
@@ -203,7 +281,6 @@ def normalize_without_ands(query):
 
     subquery_text = 'SELECT ' + iselect + ' FROM ' + ifrom + ' WHERE ' + iwhere;
   query_text = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere;
-
   query_text += subquery_text + ')';
 
     #print(query_text);
@@ -226,21 +303,64 @@ def getRenameMap(from_list, q_arr):
   return rename_map;
 
 
-#Fix context relations in correlated subqueries
-#Preconditions: Query is a valid SQL query, Parent_rename_map is the table of all renamed values
-#Postconditions: the query with solved context relations is returned
-def fix_correlated_subquery(query, parent_rename_map = { }):
+def fix_all_correlated_subquery(query, parent_rename_map = { }):
   keywords = ['ABSOLUTE','EXEC','OVERLAPS','ACTION','EXECUTE','PAD','ADA','EXISTS','PARTIAL','ADD','EXTERNAL','PASCAL','ALL','EXTRACT','POSITION','ALLOCATE','FALSE','PRECISION','ALTER','FETCH','PREPARE','AND','FIRST','PRESERVE','ANY','FLOAT','PRIMARY','ARE','FOR','PRIOR','AS','FOREIGN','PRIVILEGES','ASC','FORTRAN','PROCEDURE','ASSERTION','FOUND','PUBLIC','AT','FROM','READ','AUTHORIZATION','FULL','REAL','AVG','GET','REFERENCES','BEGIN','GLOBAL','RELATIVE','BETWEEN','GO','RESTRICT','BIT','GOTO','REVOKE','BIT_LENGTH','GRANT','RIGHT','BOTH','GROUP','ROLLBACK','BY','HAVING','ROWS','CASCADE','HOUR','SCHEMA','CASCADED','IDENTITY','SCROLL','CASE','IMMEDIATE','SECOND','CAST','IN','SECTION','CATALOG','INCLUDE','SELECT','CHAR','INDEX','SESSION','CHAR_LENGTH','INDICATOR','SESSION_USER','CHARACTER','INITIALLY','SET','CHARACTER_LENGTH','INNER','SIZE','CHECK','INPUT','SMALLINT','CLOSE','INSENSITIVE','SOME','COALESCE','INSERT','SPACE','COLLATE','INT','SQL','COLLATION','INTEGER','SQLCA','COLUMN','INTERSECT','SQLCODE','COMMIT','INTERVAL','SQLERROR','CONNECT','INTO','SQLSTATE','CONNECTION','IS','SQLWARNING','CONSTRAINT','ISOLATION','SUBSTRING','CONSTRAINTS','JOIN','SUM','CONTINUE','KEY','SYSTEM_USER','CONVERT','LANGUAGE','TABLE','CORRESPONDING','LAST','TEMPORARY','COUNT','LEADING','THEN','CREATE','LEFT','TIME','CROSS','LEVEL','TIMESTAMP','CURRENT','LIKE','TIMEZONE_HOUR','CURRENT_DATE','LOCAL','TIMEZONE_MINUTE','CURRENT_TIME','LOWER','TO','CURRENT_TIMESTAMP','MATCH','TRAILING','CURRENT_USER','MAX','TRANSACTION','CURSOR','MIN','TRANSLATE','DATE','MINUTE','TRANSLATION','DAY','MODULE','TRIM','DEALLOCATE','MONTH','TRUE','DEC','NAMES','UNION','DECIMAL','NATIONAL','UNIQUE','DECLARE','NATURAL','UNKNOWN','DEFAULT','NCHAR','UPDATE','DEFERRABLE','NEXT','UPPER','DEFERRED','NO','USAGE','DELETE','NONE','USER','DESC','NOT','USING','DESCRIBE','NULL','VALUE','DESCRIPTOR','NULLIF','VALUES','DIAGNOSTICS','NUMERIC','VARCHAR','DISCONNECT','OCTET_LENGTH','VARYING','DISTINCT','OF','VIEW','DOMAIN','ON','WHEN','DOUBLE','ONLY','WHENEVER','DROP','OPEN','WHERE','ELSE','OPTION','WITH','END','OR','WORK','END-EXEC','ORDER','WRITE','ESCAPE','OUTER','YEAR','EXCEPT','OUTPUT','ZONE','EXCEPTION']
   #Get to innermost subquery
   subquery = '';
   #print('175', query);
+  #top-level query
   (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+  (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+
+  new_where = '';
+  new_str = ' '.join(oarr[oarr.index('WHERE')+1:])
+  new_str = re.sub('[\n\s]+',' ', new_str)
+
+  parens = find_parentheses(new_str)
+
+  ands = re.finditer('\s+AND\s+', new_str)
+  actual_ands = [];
+  sub_wheres = [];
+  for a in ands:
+    a_index = a.start();
+    is_separator = True
+    for op in parens:
+        cp = parens[op];
+        if a_index > op and a_index < cp:
+            is_separator = False;
+    if is_separator:
+        actual_ands += [a];
+  if len(actual_ands) == 0:
+    print(162);
+    return fix_correlated_subquery(query);
+  else:
+    for ai in range(len(actual_ands)):
+        print(ai);
+        
+        if ai == len(actual_ands) - 1:
+            sub_wheres += [new_str[actual_ands[ai].end():]];
+        if ai == 0:
+            sub_wheres += [new_str[:actual_ands[ai].start()]]
+        else:
+            sub_wheres += [new_str[actual_ands[ai-1].end():actual_ands[ai].start()]]
+
+    for where in sub_wheres:
+        subwheretext = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + where;
+        fixed_part = fix_all_correlated_subquery(subwheretext);
+        if new_where == '':
+            new_where = fixed_part[fixed_part.index('WHERE')+len('WHERE'):]
+        else:
+            new_where += ' AND ' + fixed_part[fixed_part.index('WHERE')+len('WHERE'):]
+  print('new_where', new_where);
+  return 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + new_where;
+
+  
+  '''
   if hasSubquery(query):
     subquery = getNextSubQuery(query);
     (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
     #print(parent_rename_map);
     updated_rename_map = parent_rename_map.copy();
-
     rnm = getRenameMap(ofrom, oarr);
     updated_rename_map.update(rnm);#make sure we understand all currently available context relations
     #print(updated_rename_map, 183, query);
@@ -286,6 +406,76 @@ def fix_correlated_subquery(query, parent_rename_map = { }):
               ofrom = 'CROSS(RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom + ')';
       #print('entry end');
   query = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere + subquery;
+  if subquery != '':
+      query += ')';
+  print(419,query);
+  return query;
+#NOT FINISHED, NAIVE AND DOES NOT APPLY ANY LOGICAL CORRECTIONS
+'''
+
+
+#Fix context relations in correlated subqueries
+#Preconditions: Query is a valid SQL query, Parent_rename_map is the table of all renamed values
+#Postconditions: the query with solved context relations is returned
+def fix_correlated_subquery(query, parent_rename_map = { }):
+  keywords = ['ABSOLUTE','EXEC','OVERLAPS','ACTION','EXECUTE','PAD','ADA','EXISTS','PARTIAL','ADD','EXTERNAL','PASCAL','ALL','EXTRACT','POSITION','ALLOCATE','FALSE','PRECISION','ALTER','FETCH','PREPARE','AND','FIRST','PRESERVE','ANY','FLOAT','PRIMARY','ARE','FOR','PRIOR','AS','FOREIGN','PRIVILEGES','ASC','FORTRAN','PROCEDURE','ASSERTION','FOUND','PUBLIC','AT','FROM','READ','AUTHORIZATION','FULL','REAL','AVG','GET','REFERENCES','BEGIN','GLOBAL','RELATIVE','BETWEEN','GO','RESTRICT','BIT','GOTO','REVOKE','BIT_LENGTH','GRANT','RIGHT','BOTH','GROUP','ROLLBACK','BY','HAVING','ROWS','CASCADE','HOUR','SCHEMA','CASCADED','IDENTITY','SCROLL','CASE','IMMEDIATE','SECOND','CAST','IN','SECTION','CATALOG','INCLUDE','SELECT','CHAR','INDEX','SESSION','CHAR_LENGTH','INDICATOR','SESSION_USER','CHARACTER','INITIALLY','SET','CHARACTER_LENGTH','INNER','SIZE','CHECK','INPUT','SMALLINT','CLOSE','INSENSITIVE','SOME','COALESCE','INSERT','SPACE','COLLATE','INT','SQL','COLLATION','INTEGER','SQLCA','COLUMN','INTERSECT','SQLCODE','COMMIT','INTERVAL','SQLERROR','CONNECT','INTO','SQLSTATE','CONNECTION','IS','SQLWARNING','CONSTRAINT','ISOLATION','SUBSTRING','CONSTRAINTS','JOIN','SUM','CONTINUE','KEY','SYSTEM_USER','CONVERT','LANGUAGE','TABLE','CORRESPONDING','LAST','TEMPORARY','COUNT','LEADING','THEN','CREATE','LEFT','TIME','CROSS','LEVEL','TIMESTAMP','CURRENT','LIKE','TIMEZONE_HOUR','CURRENT_DATE','LOCAL','TIMEZONE_MINUTE','CURRENT_TIME','LOWER','TO','CURRENT_TIMESTAMP','MATCH','TRAILING','CURRENT_USER','MAX','TRANSACTION','CURSOR','MIN','TRANSLATE','DATE','MINUTE','TRANSLATION','DAY','MODULE','TRIM','DEALLOCATE','MONTH','TRUE','DEC','NAMES','UNION','DECIMAL','NATIONAL','UNIQUE','DECLARE','NATURAL','UNKNOWN','DEFAULT','NCHAR','UPDATE','DEFERRABLE','NEXT','UPPER','DEFERRED','NO','USAGE','DELETE','NONE','USER','DESC','NOT','USING','DESCRIBE','NULL','VALUE','DESCRIPTOR','NULLIF','VALUES','DIAGNOSTICS','NUMERIC','VARCHAR','DISCONNECT','OCTET_LENGTH','VARYING','DISTINCT','OF','VIEW','DOMAIN','ON','WHEN','DOUBLE','ONLY','WHENEVER','DROP','OPEN','WHERE','ELSE','OPTION','WITH','END','OR','WORK','END-EXEC','ORDER','WRITE','ESCAPE','OUTER','YEAR','EXCEPT','OUTPUT','ZONE','EXCEPTION']
+  #Get to innermost subquery
+  subquery = '';
+  #print('175', query);
+  (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+  if hasSubquery(query):
+    subquery = getNextSubQuery(query);
+    (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
+    #print(parent_rename_map);
+    updated_rename_map = parent_rename_map.copy();
+    rnm = getRenameMap(ofrom, oarr);
+    updated_rename_map.update(rnm);#make sure we understand all currently available context relations
+    #print(updated_rename_map, 183, query);
+    #print('unfixed subquery: ' + subquery)
+    subquery = fix_correlated_subquery(subquery, updated_rename_map); #send the list of context relations to the child
+    #print('fixed subquery: ' + subquery)
+    #in the where make sure everything belongs to the from
+  wherarr=re.findall('[\w\d]*\.*[\w\d]+', owhere);
+  
+  rename_map = getRenameMap(ofrom, oarr);
+  #print(wherarr);
+  for entry in wherarr: #go through and  find context relation
+    #print(wherarr);
+    if entry != 'EXISTS': #EXISTS is definitely not a context relation
+      #print('entry start');
+      #print(entry);
+      #stolen from validAttributes Function
+      if re.match('[\w\d]+\.[\w\d]+', entry): #if there is a ., we have to check if the phrase before the . is in our rename table 
+        #print(entry, parent_rename_map, rename_map);
+        attr = entry[entry.index('.') + 1:] 
+        table = entry[0:entry.index('.')]
+        #print('a: ',attr, table, table in rename_map.keys() or table in parent_rename_map.keys())
+        if not (table in rename_map.keys()):
+          #ifrom = 'CROSS(RENAME_{' + table + '}(' + rename_map[table] + '),' + ifrom + ')';
+          #print('do nothing');
+        #else:
+          ofrom = 'RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom; #label the query as RENAMEALL, to denote a context relation
+          #print(subquery);
+        
+      else: #the query is simply a single word, we must check if the attribute works in the proper spot
+        flag = False;
+        #print(rename_map);
+        for table in rename_map.values():
+          if entry in schema[table].keys():
+            #we got one that's good - the attribute is in a directly related table
+            flag = True;
+            break#RA
+
+        if not flag: #it's not in immediately available tables - we know it's a context relation then
+          for table in parent_rename_map.values():
+            if entry in schema[table]:
+              #found it
+              ofrom = 'CROSS(RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom + ')';
+      #print('entry end');
+  query = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere + subquery;
+  if subquery != '':
+      query += ')';
+  print(419,query);
   return query;
 #NOT FINISHED, NAIVE AND DOES NOT APPLY ANY LOGICAL CORRECTIONS
 
@@ -398,16 +588,24 @@ WHERE SAILORS.SID = 5
       AND RESERVES.SID=SAILORS.SID;'''
 
 q5 =''' SELECT    SNAME
-FROM       SAILORS 
+FROM       SAILORS, BOATS
 WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
                           FROM     RESERVES 
-                          WHERE RESERVES.SID=10)'''
+                          WHERE RESERVES.SID=10) AND BOATS.BID NOT IN (SELECT RESERVES.BID FROM RESERVES WHERE RESERVES.BID < 5)'''
+
+
+q76 = '''SELECT SNAME FROM SAILORS, RESERVES 
+         WHERE NOT EXISTS (SELECT RESERVES.SID FROM RESERVES WHERE SAILORS.SID=RESERVES.SID)'''
+
 #test='';
 #while(test!=)
 print '---------';
 #decorrelate_disconjuctive(q3)
-normalize_without_ands(q4);
+#normalize_without_ands(q4);
 #print(fix_correlated_subquery(q2));
 #print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q3))));
 #print(normalize_without_ands(q3));
 #RENAMEALL = A Table that needs all of its attributes to be projected
+print(fix_all_correlated_subquery(normalize_with_ands(q5)));
+print('--');
+#print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q5))))
