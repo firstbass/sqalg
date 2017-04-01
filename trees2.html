@@ -2,10 +2,16 @@
 <head>
   <title>Testing Document</title>
   <style> 
-  body {padding:0; margin: 0;}
+  body {padding:0; margin: 0;background-color:white;}
+  p {font-size: 3rem;}
   </style>
+  <script type="test/x-mathjax-config">
+  MathJax.Hub.msieHTMLCollectionBug = true;
+  </script>
+  <script type="text/javascript" src="./MathJax-2.7.0/MathJax.js?config=TeX-AMS_HTML-full"></script>
 </head>
 <body>
+  <p id='eq'></p>
   <canvas id="main_canvas">
   </canvas>
   <script src='treedraw.js'></script>

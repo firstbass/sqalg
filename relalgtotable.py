@@ -4,12 +4,12 @@
 
 import re
 import os
+import io
 import json
 from subprocess import call
 import sys
 
 from subprocess import check_output
-import io, json
 
 binary_operators = ['NATURALJOIN', 'ANTIJOIN', 'CROSS', 'UNION', 'INTERSECT', 'MINUS', 'DIVIDE']
 unary_operators = ['PROJECT', 'SELECT', 'RENAME', 'RENAMEALL']
@@ -245,6 +245,8 @@ def createTreeImage(query, image_name):
     with io.open('data.json', 'w', encoding='utf-8') as f:
         f.write(tree_text);
     check_output('.\\phantom\\bin\\phantomjs.exe github.js "' + image_name + '"')
-    os.remove('data.json');
+    #os.remove('data.json');
+
+
 
 createTreeImage(test, 'hoobaloo');

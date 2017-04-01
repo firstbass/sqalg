@@ -56,13 +56,31 @@ page.onError = function(msg, trace) {
 
 };
 
+page.onAlert = function (msg) {
+  if (msg === "MathJax Done") {
+    //console.log(page.content);
+  } else if (msg === "MathJax Timeout") {
+    console.log("Timed out waiting for MathJax");
+  } else {console.log(msg)}
+  page.render(name + '.png');
+  page.close();
+  phantom.exit(0);
+}
+
+
 
 page.open('trees2.html', function ( ) {
   page.evaluate(function (t) {
     processTree(t);
     PrintTree(cxt,t);
+    var equation = document.getElementById('eq');
+    console.log(75);
+    equation.innerHTML = '$$' + treeToLatex(t) + '$$';
+    console.log(76);
+    MathJax.Hub.Queue(
+      ["Typeset",MathJax.Hub],
+      [alert,'MathJax Done']
+    );
+    setTimeout(function ( ) {alert("MathJax Timeout")},10000);
   }, tree);
-  page.render(name + '.png');
-  page.close();
-  phantom.exit(0);
 });
