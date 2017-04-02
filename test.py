@@ -281,7 +281,8 @@ def normalize_without_ands(query):
 
     subquery_text = 'SELECT ' + iselect + ' FROM ' + ifrom + ' WHERE ' + iwhere;
   query_text = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere;
-  query_text += subquery_text + ')';
+  if subquery_text != '':
+    query_text += subquery_text + ')';
 
     #print(query_text);
   return query_text;
@@ -510,6 +511,7 @@ def decorrelate_conjunctive(query):
   # already added context relations to the from list
   subquery = '';
   subquery_free_part = '';
+  rel_alg = '';
   #print(query);
   #print('175', query);
   (oarr, oselect, owhere, ofrom,ocross) = select_from_where_nosubquery(query);
@@ -536,10 +538,8 @@ def decorrelate_conjunctive(query):
         table_name = rel[rel.index('(')+1:rel.index(')')];
         rename = rel[rel.index('{') + 1:rel.index('}')];
         attrs += getParameters(schema, table_name, rename)
-
-        natty_join = 'ANTIJOIN(' + from_list_to_relalg(ofrom) + ',' + 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + ')';
-        
-        rel_alg = 'PROJECT_{' + oselect + '}(' + 'SELECT_{' + subquery_free_part + '}(' + natty_join + '))'
+        #anti join
+        natty_join = 'MINUS(' + from_list_to_relalg(ofrom) + ',NATURALJOIN(' + from_list_to_relalg(ofrom) + ',' + 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + '))';
         #print(rel_alg);
 
     elif 'EXISTS' in entry:
@@ -565,9 +565,6 @@ def decorrelate_conjunctive(query):
   #translate the exists
   #translate the not exists
   #apply the projection of the sle
-
-
-
   #'\w+[\w\d]*'
   return rel_alg;
 q3 =''' SELECT    SNAME
@@ -599,13 +596,13 @@ q76 = '''SELECT SNAME FROM SAILORS, RESERVES
 
 #test='';
 #while(test!=)
-print '---------';
+#print '---------';
 #decorrelate_disconjuctive(q3)
 #normalize_without_ands(q4);
 #print(fix_correlated_subquery(q2));
 #print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q3))));
 #print(normalize_without_ands(q3));
 #RENAMEALL = A Table that needs all of its attributes to be projected
-print(fix_all_correlated_subquery(normalize_with_ands(q5)));
-print('--');
+#print(fix_all_correlated_subquery(normalize_with_ands(q5)));
+#print('--');
 #print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q5))))

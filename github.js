@@ -67,16 +67,12 @@ page.onAlert = function (msg) {
   phantom.exit(0);
 }
 
-
-
 page.open('trees2.html', function ( ) {
   page.evaluate(function (t) {
     processTree(t);
     PrintTree(cxt,t);
     var equation = document.getElementById('eq');
-    console.log(75);
     equation.innerHTML = '$$' + treeToLatex(t) + '$$';
-    console.log(76);
     MathJax.Hub.Queue(
       ["Typeset",MathJax.Hub],
       [alert,'MathJax Done']
