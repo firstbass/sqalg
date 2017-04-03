@@ -1,0 +1,34 @@
+Test Data:  
+1)  Schemas of the underlying relations;
+a.  Sailors(sid:integer, sname:string, rating:integer, age:real)
+b.  Boats(bid:integer, bname:string, color:string)
+c.  Reserves(sid:integer, bid:integer, day:date) 
+
+2)  SQL queries
+
+a. SELECT S.sname
+        FROM SAILORS AS S
+        WHERE S.rating = 5 AND EXISTS (SELECT R.sid
+                      FROM RESERVES AS R
+                      WHERE R.SID = S.SID AND R.BID = 10);
+
+b. SELECT S.sname
+FROM Sailors AS S
+WHERE S.age > (SELECT MAX(S2.age)
+               FROM Sailors S2
+               WHERE S2.rating = (SELECT MAX(S2.age)
+                                   FROM Sailors S2
+                                   WHERE S2.rating = (SELECT MAX(S2.age)
+                                                       FROM Sailors S2,DOGS
+                                                       WHERE S2.rating = S.rating)));
+
+d. SELECT    SNAME
+FROM       SAILORS, BOATS
+WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
+                          FROM     RESERVES 
+                          WHERE RESERVES.SID=10) AND BOATS.BID NOT IN (SELECT RESERVES.BID FROM RESERVES WHERE RESERVES.BID < 5);
+
+e. SELECT SNAME FROM SAILORS, RESERVES 
+         WHERE NOT EXISTS (SELECT RESERVES.SID FROM RESERVES WHERE SAILORS.SID = RESERVES.SID);
+
+f. SELECT * FROM SAILORS;

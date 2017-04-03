@@ -96,8 +96,10 @@ def select_from_where_nosubquery(query):
 
   select_list = arr[arr.index('SELECT') + 1];
   from_list = arr[arr.index('FROM') + 1];
-  
-  where_list = arr[arr.index('WHERE') + 1];
+  if re.search('WHERE', query) == None:
+    where_list = '1 = 1';
+  else:
+    where_list = arr[arr.index('WHERE') + 1];
 
   cross_text = from_list_to_relalg(from_list);
   

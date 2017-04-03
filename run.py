@@ -127,8 +127,8 @@ else:
       #createTreeImage(decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry))),'tree_'+str(count));
     except KeyboardInterrupt:
       break;
-    except:
+    except :
       print('That query was not successfully parsed by our program :(');
-      print(sys.exc_info()[0]);
+      print(sys.exc_info()[2]);
     finally:
       count+=1;
