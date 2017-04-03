@@ -90,12 +90,13 @@ def relalg(select_list, from_list, where_list):
 #and where_list are returned, and the from_list in relational algebra is returned.
 def select_from_where_nosubquery(query):
   query = re.sub('[\n\s]+',' ', query);
-  SELECT_FROM_WHERE = '(SELECT|FROM|WHERE)'# ([\W\w]+) FROM ([\W\w]+) WHERE ([\W\w]+)';
+  SELECT_FROM_WHERE = '(SELECT|FROM|WHERE|GROUP BY|HAVING)'# ([\W\w]+) FROM ([\W\w]+) WHERE ([\W\w]+)';
   arr = re.split(SELECT_FROM_WHERE, query);
 
 
   select_list = arr[arr.index('SELECT') + 1];
   from_list = arr[arr.index('FROM') + 1];
+  
   where_list = arr[arr.index('WHERE') + 1];
 
   cross_text = from_list_to_relalg(from_list);

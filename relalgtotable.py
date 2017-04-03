@@ -143,6 +143,7 @@ def getNode(type_of, text):
 
 def startsWithOp(expr):
     print('invoked startsWithOP')
+    expr = expr.strip();
     for op in binary_operators:
         if expr.startswith(op):
             print(expr + ' starts with ' + op);
@@ -159,6 +160,7 @@ def startsWithOp(expr):
 #add function later!    
 def createTree(expr):
     tree = {}
+    expr = expr.strip();
     if not startsWithOp(expr):
         #must be a table
         return getNode('table', expr);
@@ -225,10 +227,10 @@ def createTree(expr):
                 print(operator, condition, first, second);
                 first_node = createTree(first)
                 second_node = createTree(second)
-                if operator != 'CROSS':
-                    text = operator + '_{' + condition + '}';
-                else:
-                    text = operator;
+                #if operator != 'CROSS':
+                #    text = operator + '_{' + condition + '}';
+                #else:
+                text = operator;
                 tree = getNode('operator', text);
                 tree['children'] += [first_node, second_node];
                 return tree;      

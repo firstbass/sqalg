@@ -4,7 +4,6 @@ import sys
 from queries import *
 from test import *
 from relalgtotable import *
-from union import *
 document=''
 schema = None;
 count = 0;
@@ -108,14 +107,28 @@ else:
   document = document[document.index('2)'):];
   document = re.sub('[\s\n]+', ' ', document).upper();
   for entry in re.findall('\w\.\s+(.+?)\;',document):
-    print('----------------------------')
-    print('----------------------------')
-    print('----------------------------')
-    print(entry);
-    print('----------------------------')
-    print('----------------------------')
+    try:
+      print('----------------------------')
+      print('----------------------------')
+      print('----------------------------')
+      print(entry);
+      print('----------------------------')
+      print('----------------------------')
 
-    createTreeImage(separateAtConjunction(entry,schema), 'tree_' +str(count));
-    #createTreeImage(separatdecorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry),schema)), 'tree_'+str(count));
-    #createTreeImage(decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry))),'tree_'+str(count));
-    count+=1;
+      createTreeImage(separateAtConjunction(entry,schema), 'tree_' +str(count));
+      # Open a file
+      fo = open('tree_'+str(count)+'.dat', "wb")
+      fo.write(entry);
+
+      # Close opend file
+      fo.close()
+
+      #createTreeImage(separatdecorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry),schema)), 'tree_'+str(count));
+      #createTreeImage(decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry))),'tree_'+str(count));
+    except KeyboardInterrupt:
+      break;
+    except:
+      print('That query was not successfully parsed by our program :(');
+      print(sys.exc_info()[0]);
+    finally:
+      count+=1;

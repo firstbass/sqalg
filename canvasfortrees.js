@@ -172,6 +172,15 @@ function createText(context, pre, mid, post, x, y, background, override, text_co
   return region;
 }
 
+function countNodes(node)
+{
+  var count = 1;
+  node.children.forEach(function(self) {
+    count += countNodes(self);
+  });
+  return count;
+}
+
 // returns the integer node depth of the tree
 // node: tree of which to find the height
 function treeDepth (node)
@@ -185,10 +194,11 @@ function treeDepth (node)
 
 // returns an array with canvas-coordinates from the coordinates
 // created during the buchheim process for each node of the tree
-function coordsToCanvas(x,y)
+function coordsToCanvas(x,y,num)
 {
-  var PADDING_X = 50 * MARGIN;
-  var canvasX = (canvas.width - PADDING_X * 2) * x + PADDING_X;
+  console.log('________________________________190__________________________', x, y);
+  var PADDING_X = 10 * MARGIN;
+  var canvasX = (canvas.width - PADDING_X * 2) * (1.5*x/num) + PADDING_X;
   var canvasY = (y + 1) * 60;
   return [canvasX, canvasY];
 }
@@ -232,6 +242,7 @@ function processTree(tree)
 function PrintTree(context, tree)
 {
   var queue = new Array();
+  size = countNodes(tree);
   queue.push(tree);
   while (queue.length > 0)
   {
@@ -239,7 +250,7 @@ function PrintTree(context, tree)
     var v = queue.shift();
 
     // convert the processed (x,y) coordinates into canvas coordinates
-    var canvasCoords = coordsToCanvas(v.x,v.y);
+    var canvasCoords = coordsToCanvas(v.x,v.y, size);
     v.x = canvasCoords[0];
     v.y = canvasCoords[1];
 
@@ -263,7 +274,7 @@ function PrintTree(context, tree)
   context.fillRect(0,0,CENTER_X * 2, CENTER_Y * 2);
   context.closePath();
   context.globalCompositeOperation = 'source-over';
-  
+
 }
 
 function treeToLatex(tree) {

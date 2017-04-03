@@ -79,7 +79,9 @@ page.open('trees2.html', function ( ) {
     t = processTree(t)
     PrintTree(cxt,t);
     var equation = document.getElementById('eq');
-    equation.innerHTML = '$$' + treeToLatex(t) + '$$';
+    var a = treeToLatex(t);
+    equation.innerHTML += '$$' + a + '$$';
+    equation.innerHTML += '\n\n' + a;
     MathJax.Hub.Queue(
       ["Typeset",MathJax.Hub],
       [alert,'MathJax Done']
