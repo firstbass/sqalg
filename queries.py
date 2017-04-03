@@ -34,7 +34,7 @@ def getSchema(s):
     exec(line);
   return schema;
 
-schema = getSchema('''Test Data:  
+"""schema = getSchema('''Test Data:  
 1)  Schemas of the underlying relations;
 a.  Sailors(sid:integer, sname:string, rating:integer, age:real)
 b.  Boats(bid:integer, bname:string, color:string)
@@ -48,7 +48,7 @@ WHERE     S.sid=R.sid AND R.bid=103
 b.  SELECT      S.sname
 FROM        Sailors AS S,  Reserves AS R, Boats AS B
 WHERE     S.sid=R.sid AND R.bid=B.bid AND B.color=’red’
-''')
+''')"""
 
 #print(schema);
 

@@ -17,8 +17,8 @@ else
   name = system.args[1];
 }
 // page information
-page.viewportSize = { width: 800, height: 700 };
-page.clipRect = { top: 0, left: 0, width: 800, height: 700 };
+page.viewportSize = { width: 2000, height: 1000 };
+page.clipRect = { top: 0, left: 0, width: 2000, height: 1000 };
 
 tree_string = '';
 file = 'data.json';
@@ -37,8 +37,15 @@ else
 // Parse JSON string into object
 tree = JSON.parse(tree_string);
 
+function log_stuff(msg) {
+  if (!fs.exists('log.txt')) {
+    fs.touch('log.txt');
+  }
+  fs.write('log.txt', fs.read('log.txt') + '' + msg,'w')
+}
+
 page.onConsoleMessage = function(msg, lineNum, sourceId) {
-  console.log('__CONSOLE__: ' + msg);
+  log_stuff('__CONSOLE__: ' + msg);
 }
 
 page.onError = function(msg, trace) {
@@ -69,7 +76,7 @@ page.onAlert = function (msg) {
 
 page.open('trees2.html', function ( ) {
   page.evaluate(function (t) {
-    processTree(t);
+    t = processTree(t)
     PrintTree(cxt,t);
     var equation = document.getElementById('eq');
     equation.innerHTML = '$$' + treeToLatex(t) + '$$';

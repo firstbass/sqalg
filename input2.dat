@@ -1,0 +1,10 @@
+Test Data:  
+1)  Schemas of the underlying relations;
+a.  Sailors(sid:integer, sname:string, rating:integer, age:real)
+b.  Boats(bid:integer, bname:string, color:string)
+c.  Reserves(sid:integer, bid:integer, day:date) 
+
+2)  SQL queries
+a.  SELECT      S.sname
+FROM        Sailors AS S,  Reserves AS R
+WHERE     S.sid=R.sid AND R.bid=103;

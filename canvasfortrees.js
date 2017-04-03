@@ -263,6 +263,7 @@ function PrintTree(context, tree)
   context.fillRect(0,0,CENTER_X * 2, CENTER_Y * 2);
   context.closePath();
   context.globalCompositeOperation = 'source-over';
+  
 }
 
 function treeToLatex(tree) {
