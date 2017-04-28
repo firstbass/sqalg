@@ -4,20 +4,35 @@ import sys
 from queries import *
 from test import *
 from relalgtotable import *
-document=''
+
+document = None;
 schema = None;
-count = 0;
-f = None;
+count  = 0;
+fileObj = None;
+
+# this function replaces all combinations of whitespace and
+# newlines with a single space
+def simplify_whitespace ( inStr ):
+  return re.sub('[\n\s]+', ' ', inStr);
 
 
+# 
 
+def shedParens ( query ):
 
-def shedParens(query):
-  query = re.sub('[\n\s]+', ' ', query);
+  # simplify the whitespace in the query
+  query = simplify_whitespace(query);
+
+  # find the parentheses
   parens = find_parentheses(query);
-  if re.match('\s*\(',query) and parens[query.index('(')] == len(query) - 2:
-    print('')
-    return shedParens(query[1:parens[query.index('(')]]);
+  
+  if re.match('\s*\(', query) and parens[query.index('(')] == len(query) - 2:
+
+    # this is the text inside the outer most parentheses
+    inner_text = query[1:parens[query.index('(')]];
+
+    # shed the parentheses of the inner text
+    return shedParens(inner_text);
   else:
     return query;
 
@@ -34,52 +49,87 @@ def find_parentheses(s):
 
     # The indexes of the open parentheses are stored in a stack, implemented
     # as a list
-
     stack = []
     parentheses_locs = {}
-    for i, c in enumerate(s):
-        if c == '(':
-            stack.append(i)
-        elif c == ')':
+    
+    # go through each character in the string
+    for index, char in enumerate(s):
+        
+        # push opening parentheses
+        if char == '(':
+            stack.append(index)
+
+        # when closing parentheses come, add the pair to parentheses_locs
+        elif char == ')':
             try:
-                parentheses_locs[stack.pop()] = i
+                parentheses_locs[stack.pop()] = index
             except IndexError:
-                raise IndexError('Too many close parentheses at index {}'
-                                                                .format(i))
+                raise IndexError('Too many closing parentheses at index {}'.format(index))
+    
+    # if there is still entries on the stack, then error
     if stack:
-        raise IndexError('No matching close parenthesis to open parenthesis '
-                         'at index {}'.format(stack.pop()))
+        raise IndexError('No matching closing parenthesis to opening parenthesis at index {}'.format(stack.pop()))
+    
+    # return the dictionary
     return parentheses_locs
 
+
 def queryToRelalg(query,sch):
-  query = re.sub('[\n\s]+', ' ', query);
+
+  # remove superfluous parentheses
   query = shedParens(query);
 
-  print(49,query);
-  print(50,shedParens(query));
+  # print(49,query);
+  # print(50,shedParens(query));
   return separateAtConjunction(query,sch);
 
 #only works on top level conjunctions, not in subqueries
 #almost works on multiple levels
+
 def separateAtConjunction(query,sch):
+
+  # conjunctions are places where it is acceptable to split
   conjunctions = ['UNION', 'INTERSECT', 'CONTAINS', 'EXCEPT']
+
+  # obtain dictionary of all parentheses
   parens = find_parentheses(query);
-  conj_sep_list = re.split('[\s\n]+(UNION|INTERSECT|CONTAINS|EXCEPT)[\s\n]+', query);
+
+  SPLIT_AT_CONJ_REGEX = '[\s\n]+(UNION|INTERSECT|CONTAINS|EXCEPT)[\s\n]+';
+  # create a list that creates new entries at all conjunctions, including the conjunctions
+  # e.g. A UNION B ==> [A, UNION, B]
+  conj_sep_list = re.split(SPLIT_AT_CONJ_REGEX, query);
+
+
   first_actual_conjunction = -1;
   last = '';
+
   i = 0;
+  # obtain the same dictionary of all parentheses
   parens = find_parentheses(query)
-  conjs = re.finditer('[\s\n]+(UNION|INTERSECT|CONTAINS|EXCEPT)[\s\n]+', query)
+
+
+  conjs = re.finditer(SPLIT_AT_CONJ_REGEX, query)
   first_actual_conj = None;
+
+  # look at all conjunctions and finds the first conjunction that acts on the
+  # top-level query and sets it as first_actual_conj
   for conj in conjs:
+    # ci is the start index of the conjunction
     ci = conj.start();
     is_separator = True
+    # for all opening parentheses
     for op in parens:
+      # cp is the closing parenthesis
       cp = parens[op];
+      # if the conjunction index is in its own parentheses, it is not a separator
+      # for the top-level query
       if ci > op and ci < cp:
         is_separator = False;
+    # we have found the first conjunction
     if is_separator:
       first_actual_conj = conj;
+
+  # if no top-level query conjunction is found
   if first_actual_conj != None:
     return_str = '';
     return_str += query[first_actual_conj.start():first_actual_conj.end()].strip();
@@ -93,42 +143,58 @@ def separateAtConjunction(query,sch):
     return decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(shedParens(query)),sch),sch);
     #return postSplitting(query);
 
+# commands must be given as 'run.py <filename>'
+if len(sys.argv) != 2: 
+  print('Invalid command: must provide a file to run input on');
 
-
-
-
-if len(sys.argv) != 2:
-  print('FAILURE NEED EXACTLY ONE ARGUMENT (FILE WITH INPUT)');
+# if valid input is given
 else:
-  f = open(sys.argv[1]);
-  document = f.read();
+
+  # get the contents of the input file
+  filename = sys.argv[1];
+  fileObj = open(filename);
+  document = fileObj.read();
+
+  # set schema to a dictionary of the valid schema
   schema = getSchema(document);
-  
+
+  # cut off the schema portion of the document
   document = document[document.index('2)'):];
+
+  # transform any whitespace and newline combination into single spaces
+  # and turn everything into uppercase, because case does not matter in SQL
   document = re.sub('[\s\n]+', ' ', document).upper();
+
+  # selects queries presented to us of the form (a. ----- ;)
   for entry in re.findall('\w\.\s+(.+?)\;',document):
+
+    # in the event that an error arises, we exit the current query's execution
+    # and move on to the next without any output for the erroring query
     try:
-      print('----------------------------')
-      print('----------------------------')
-      print('----------------------------')
-      print(entry);
-      print('----------------------------')
-      print('----------------------------')
+      tree_string = separateAtConjunction(entry, schema);
+      tree_name = 'tree_' + str(count);
+      createTreeImage(tree_string, tree_name);
+      
+      # save the query in a data file
+      fileObj = open(tree_name + '.dat', 'wb');
+      fileObj.write(entry);
 
-      createTreeImage(separateAtConjunction(entry,schema), 'tree_' +str(count));
-      # Open a file
-      fo = open('tree_'+str(count)+'.dat', "wb")
-      fo.write(entry);
+      # Close opened file
+      fileObj.close()
 
-      # Close opend file
-      fo.close()
+      '''createTreeImage(separatdecorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry),schema)), 'tree_'+str(count));
+         createTreeImage(decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry))),'tree_'+str(count));
+      '''
 
-      #createTreeImage(separatdecorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry),schema)), 'tree_'+str(count));
-      #createTreeImage(decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry))),'tree_'+str(count));
+    # if the user wishes to exit the program, then allow it
     except KeyboardInterrupt:
       break;
-    except :
-      print('That query was not successfully parsed by our program :(');
+
+    # any other sort of exception should be dealt with as if the parsing failed
+    except:
+      print('Error: that query was not successfully parsed by our program :(');
       print(sys.exc_info()[2]);
+    
+    # no matter what, make sure we move on to the next query
     finally:
-      count+=1;
+      count += 1;
