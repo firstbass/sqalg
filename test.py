@@ -1,55 +1,69 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+from functs import *
 import re
 from queries import *
 #Returns the inverse operation for a given comparison operation
 #Preconditions: Input is an operation string
 #Postconditions: the inverse of the input operation string is returned
 def comp_op(op):
-  if op == '<':
-    return '>='
-  elif op == '<=':
-    return '>'
-  elif op == '>':
-    return '<='
-  elif op == '>=':
-    return '<'
-  elif op == '=':
-    return '<>'
-  elif op == '<>':
-    return '=';
 
-#Transforms a from list into relational algebra
-#Preconditions: Input is a the operands to a from list
-#Postconditions: Output is a general relational algebra statement
+  switch_dict = {'<'  : '>=',
+                 '>=' : '<' ,
+                 '>'  : '<=',
+                 '<=' : '>' ,
+                 '='  : '<>',
+                 '<>' : '=' ,
+                };
+
+  return switch_dict[op];
+
+# Transforms a from list into relational algebra
+# Preconditions: Input is a the operands to a from list
+# Postconditions: Output is a general relational algebra statement
 def from_list_to_relalg(from_list):
-  #print(28);
-  from_arr = from_list.split(',') #separate the input from list by commas
-  #print(from_arr);
-  #print(from_arr);
-  from_list = ''; #NO LONGER NECESSARY
-  #go through the different entries in the comma separated list (CSL) and sanitize the RENAMEALL flag into RENAME.
+
+  # regular expression for RENAMEALL_{...}(...) with no captures
+  RENAMEALL_REGEX = 'RENAMEALL\_\{[\w\d]+\}\([\w\d]+\)';
+
+  # separate the from-list by commas
+  from_arr = from_list.split(',');
+
+  # clear the from-list
+  from_list = '';
+
+  # iterate through all comma separated values
+  # and sanitize RENAMEALL into RENAME
   for i in range(len(from_arr)):
-    #print(33);
-    if '{' in from_arr[i]: #Due to how we have documented the code, 
-      #print(35);
-      #print(from_arr[i]);
-      #find if RENAMEALL is within the entry we are looking at
-      match = re.search('RENAMEALL\_\{[\w\d]+\}\([\w\d]+\)', from_arr[i]);
-      #print(match);
-      #print(37);
-      #find the new name of the table
-      rename = from_arr[i][from_arr[i].index('{')+1:from_arr[i].index('}')];
-      #find the original name of the table
-      table_name = from_arr[i][from_arr[i].index('(')+1:from_arr[i].index(')')]
-      #print(rename, table_name);
-      #if the original name of the table is the same as  the renamed value, then put the original table value down. 
-      if (table_name == rename):
-        from_arr[i] = re.sub('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', table_name, from_arr[i], count = 1)
-      #otherwise, denote that the table is renamed.
-      else:
-        from_arr[i] = re.sub('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', table_name + ' ' + rename, from_arr[i], count = 1)
+
+    # check for any instances of 'RENAME_{' or 'RENAMEALL_{'
+    if '{' in from_arr[i]:
+      
+      # find if RENAMEALL is in the current entry
+      match = re.search(RENAMEALL_REGEX, from_arr[i]);
+      
+      # find the renamed name of the table
+      open_curly = from_arr[i].index('{');
+      close_curly = from_arr[i].index('}');
+      rename = from_arr[i][open_curly + 1 : close_curly];
+      
+      # find the original name of the table
+      open_paren = from_arr[i].index('(');
+      close_paren = from_arr[i].index(')');
+      table_name = from_arr[i][open_paren + 1 : close_paren];
+
+      # if the renamed name is the same as the original,
+      # then put the original table value down, otherwise add
+      # the opposite name (done in lines 59-66)
+
+      # replace 'RENAMEALL_{A}(A)' with 'A' initially
+      replacement_string = table_name;
+      if (table_name != rename):
+        # replace 'RENAMEALL_{B}{A}' with 'A B'
+        replacement_string += ' ' + rename;
+
+      # make the actual replacement
+      from_arr[i] = re.sub(RENAMEALL_REGEX, replacement_string, from_arr[i], count = 1)
 
 
   #go through the entries in the from list and denote which ones need to be renamed
@@ -80,10 +94,6 @@ def from_list_to_relalg(from_list):
 def relalg(select_list, from_list, where_list):
   return 'PROJECT_{' + select_list + '}(' + 'SELECT_{' + where_list + '}(' + from_list_to_relalg(from_list) + '))';
 
-#print(15);
-#print(relalg('*', 'SAILORS AS S', 'S.RATING=5'));
-#print(17);
-
 #Split a query into its select, from, and where statements
 #Preconditions: Input query is a valid SQL input.
 #Postconditions: the split query is returned, the contents of the select_list, from_list, 
@@ -108,33 +118,6 @@ def select_from_where_nosubquery(query):
   #return 'PROJECT_{' + select_list + '}(SELECT_{' + where_list + '}(' + cross_text + '))';
   return (arr, select_list, where_list, from_list, cross_text);
 #print(select_from_where_nosubquery(q1));
-def find_parentheses(s):
-    """ Find and return the location of the matching parentheses pairs in s.
-
-    Given a string, s, return a dictionary of start: end pairs giving the
-    indexes of the matching parentheses in s. Suitable exceptions are
-    raised if s contains unbalanced parentheses.
-
-    """
-
-    # The indexes of the open parentheses are stored in a stack, implemented
-    # as a list
-
-    stack = []
-    parentheses_locs = {}
-    for i, c in enumerate(s):
-        if c == '(':
-            stack.append(i)
-        elif c == ')':
-            try:
-                parentheses_locs[stack.pop()] = i
-            except IndexError:
-                raise IndexError('Too many close parentheses at index {}'
-                                                                .format(i))
-    if stack:
-        raise IndexError('No matching close parenthesis to open parenthesis '
-                         'at index {}'.format(stack.pop()))
-    return parentheses_locs
 
 
 def normalize_with_ands(query):
@@ -358,64 +341,6 @@ def fix_all_correlated_subquery(query, schema, parent_rename_map = { }):
   print('new_where', new_where);
   return 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + new_where;
 
-  
-  '''
-  if hasSubquery(query):
-    subquery = getNextSubQuery(query);
-    (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
-    #print(parent_rename_map);
-    updated_rename_map = parent_rename_map.copy();
-    rnm = getRenameMap(ofrom, oarr);
-    updated_rename_map.update(rnm);#make sure we understand all currently available context relations
-    #print(updated_rename_map, 183, query);
-    #print('unfixed subquery: ' + subquery)
-    subquery = fix_correlated_subquery(subquery, updated_rename_map); #send the list of context relations to the child
-    #print('fixed subquery: ' + subquery)
-    #in the where make sure everything belongs to the from
-  wherarr=re.findall('[\w\d]*\.*[\w\d]+', owhere);
-  
-  rename_map = getRenameMap(ofrom, oarr);
-  #print(wherarr);
-  for entry in wherarr: #go through and  find context relation
-    #print(wherarr);
-    if entry != 'EXISTS': #EXISTS is definitely not a context relation
-      #print('entry start');
-      #print(entry);
-      #stolen from validAttributes Function
-      if re.match('[\w\d]+\.[\w\d]+', entry): #if there is a ., we have to check if the phrase before the . is in our rename table 
-        #print(entry, parent_rename_map, rename_map);
-        attr = entry[entry.index('.') + 1:] 
-        table = entry[0:entry.index('.')]
-        #print('a: ',attr, table, table in rename_map.keys() or table in parent_rename_map.keys())
-        if not (table in rename_map.keys()):
-          #ifrom = 'CROSS(RENAME_{' + table + '}(' + rename_map[table] + '),' + ifrom + ')';
-          #print('do nothing');
-        #else:
-          ofrom = 'RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom; #label the query as RENAMEALL, to denote a context relation
-          #print(subquery);
-        
-      else: #the query is simply a single word, we must check if the attribute works in the proper spot
-        flag = False;
-        #print(rename_map);
-        for table in rename_map.values():
-          if entry in schema[table].keys():
-            #we got one that's good - the attribute is in a directly related table
-            flag = True;
-            break#RA
-
-        if not flag: #it's not in immediately available tables - we know it's a context relation then
-          for table in parent_rename_map.values():
-            if entry in schema[table]:
-              #found it
-              ofrom = 'CROSS(RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom + ')';
-      #print('entry end');
-  query = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere + subquery;
-  if subquery != '':
-      query += ')';
-  print(419,query);
-  return query;
-#NOT FINISHED, NAIVE AND DOES NOT APPLY ANY LOGICAL CORRECTIONS
-'''
 
 
 #Fix context relations in correlated subqueries
@@ -600,42 +525,3 @@ def decorrelate_conjunctive(query,schema):
   ###print('subquery_free_part: ', subquery_free_part);
   ###print('relalg:', rel_alg); 
   #return rel_alg;
-q3 =''' SELECT    SNAME
-FROM       SAILORS 
-WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
-                          FROM     RESERVES 
-                          WHERE RESERVES.SID=10) OR
-         SAILORS.SID IN (SELECT RESRVES.SID
-                         FROM RESERVES
-                         WHERE RESERVES.SID<>10 AND RESERVES.BID=5);
-'''
-
-
-q4='''SELECT SNAME
-FROM SAILORS, RESERVES
-WHERE SAILORS.SID = 5 
-      OR(RESERVES.SID = 10 AND RESERVES.BID=5)
-      AND RESERVES.SID=SAILORS.SID;'''
-
-q5 =''' SELECT    SNAME
-FROM       SAILORS, BOATS
-WHERE    SAILORS.SID NOT IN (SELECT  RESERVES.SID
-                          FROM     RESERVES 
-                          WHERE RESERVES.SID=10) AND BOATS.BID NOT IN (SELECT RESERVES.BID FROM RESERVES WHERE RESERVES.BID < 5)'''
-
-
-q76 = '''SELECT SNAME FROM SAILORS, RESERVES 
-         WHERE NOT EXISTS (SELECT RESERVES.SID FROM RESERVES WHERE SAILORS.SID=RESERVES.SID)'''
-
-#test='';
-#while(test!=)
-#print '---------';
-#decorrelate_disconjuctive(q3)
-#normalize_without_ands(q4);
-#print(fix_correlated_subquery(q2));
-#print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q3))));
-#print(normalize_without_ands(q3));
-#RENAMEALL = A Table that needs all of its attributes to be projected
-#print(fix_all_correlated_subquery(normalize_with_ands(q5)));
-#print('--');
-#print(decorrelate_conjunctive(fix_correlated_subquery(normalize_without_ands(q5))))
