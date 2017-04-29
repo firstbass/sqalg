@@ -3,10 +3,12 @@
 from functs import *
 import re
 from queries import *
-#Returns the inverse operation for a given comparison operation
-#Preconditions: Input is an operation string
-#Postconditions: the inverse of the input operation string is returned
+
+
 def comp_op(op):
+  ''' Returns the opposite operation given a comparison operation
+  Preconditions:  input is an operation string (example: '>=')
+  Postconditions: opposite operation string is returned '''
 
   switch_dict = {'<'  : '>=',
                  '>=' : '<' ,
@@ -18,10 +20,10 @@ def comp_op(op):
 
   return switch_dict[op];
 
-# Transforms a from list into relational algebra
-# Preconditions: Input is a the operands to a from list
-# Postconditions: Output is a general relational algebra statement
 def from_list_to_relalg(from_list):
+  ''' Transforms a from-list into a relational algebra
+  Preconditions:  input is some sort of from-list from a query/modified-query
+  Postconditions: returns general relational algebra crossing all tables '''
 
   # regular expression for RENAMEALL_{...}(...) with no captures
   RENAMEALL_REGEX = 'RENAMEALL\_\{[\w\d]+\}\([\w\d]+\)';
@@ -39,7 +41,7 @@ def from_list_to_relalg(from_list):
     # check for any instances of 'RENAME_{' or 'RENAMEALL_{'
     if '{' in from_arr[i]:
       
-      # find if RENAMEALL is in the current entry
+      # find if RENAMEALL_{..}(..) is in the current entry
       match = re.search(RENAMEALL_REGEX, from_arr[i]);
       
       # find the renamed name of the table
@@ -52,39 +54,55 @@ def from_list_to_relalg(from_list):
       close_paren = from_arr[i].index(')');
       table_name = from_arr[i][open_paren + 1 : close_paren];
 
-      # if the renamed name is the same as the original,
-      # then put the original table value down, otherwise add
-      # the opposite name (done in lines 59-66)
-
       # replace 'RENAMEALL_{A}(A)' with 'A' initially
       replacement_string = table_name;
       if (table_name != rename):
         # replace 'RENAMEALL_{B}{A}' with 'A B'
         replacement_string += ' ' + rename;
 
-      # make the actual replacement
+      # execute replacement
       from_arr[i] = re.sub(RENAMEALL_REGEX, replacement_string, from_arr[i], count = 1)
 
-
-  #go through the entries in the from list and denote which ones need to be renamed
+  # iterate through all comma separated values
+  # sanitize the table renames if invalid
   for i in range(len(from_arr)):
+
+    # remove any whitespace at front/end of string
     from_arr[i].strip();
-    word_arr = re.findall('\w+', from_arr[i]);
-    #print(45,word_arr);
-    #if there is more than word in this entry, then there must be a renamed value. luckily, the original
-    #table name is always the first entry, and the renamed value is always the last entry.
+    
+    # get all individual words and put them in an array
+    word_arr = re.findall('[\w\d]+', from_arr[i]);
+    print('__45',word_arr);
+    
+    # >1 word ==> must be a renamed value
     if len(word_arr) > 1:
+      # 'A as B' or 'A B' ==> 'RENAME_{B}(A)' 
       from_arr[i] = 'RENAME_{' + word_arr[-1] + '}(' + word_arr[0] + ')'; 
+    
+    # <=1 word ==> only a singular table
     else:
+      # 'A' ==> 'A'
       from_arr[i] = word_arr[0];
 
-  #format the cross product
+  # write the cross product text
   cross_text = '';
+
+  # iterate through all sanitized values
   for i in range(len(from_arr)):
+
+    # if not the last value
     if i != len(from_arr)-1:
+
+      # cross the table with the next value
       cross_text += 'CROSS(' + from_arr[i] + ',';
+    
+    # if last value
     else:
+
+      # complete the final cross with the last table and correct # of parens
       cross_text += from_arr[i] + (')' * (i));
+
+  # return the cross product text
   return cross_text;
 
 

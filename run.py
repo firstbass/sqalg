@@ -198,7 +198,9 @@ else:
     except:
       print('Error: that query was not successfully parsed by our program :(');
       traceback.print_tb(sys.exc_info()[2]);
+      traceback.print_exc();
     
     # no matter what, make sure we move on to the next query
     finally:
       count += 1;
+      raw_input('Press enter');
