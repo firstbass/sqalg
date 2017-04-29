@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+from functs import *
 import re
 import os
 import io
@@ -14,63 +14,12 @@ from subprocess import check_output
 binary_operators = ['NATURALJOIN', 'ANTIJOIN', 'CROSS', 'UNION', 'INTERSECT', 'EXCEPT', 'CONTAINS']
 unary_operators = ['PROJECT', 'SELECT', 'RENAME', 'RENAMEALL']
 
-test = 'PROJECT_{  S.sname  }(SELECT_{  S.rating = 5 }(CROSS(S,R)))'
-''' Parentheses code is courtesy of scipython.com/blog/parenthesis-matching-in-python '''
-def check_parentheses(s):
-    """ Return True if the parentheses in string s match, otherwise False. """
-    j = 0
-    for c in s:
-        if c == ')':
-            j -= 1
-            if j < 0:
-                return False
-        elif c == '(':
-            j += 1
-    return j == 0
-
-def find_parentheses(s):
-    """ Find and return the location of the matching parentheses pairs in s.
-
-    Given a string, s, return a dictionary of start: end pairs giving the
-    indexes of the matching parentheses in s. Suitable exceptions are
-    raised if s contains unbalanced parentheses.
-
-    """
-
-    # The indexes of the open parentheses are stored in a stack, implemented
-    # as a list
-
-    stack = []
-    parentheses_locs = {}
-    for i, c in enumerate(s):
-        if c == '(':
-            stack.append(i)
-        elif c == ')':
-            try:
-                parentheses_locs[stack.pop()] = i
-            except IndexError:
-                raise IndexError('Too many close parentheses at index {}'
-                                                                .format(i))
-    if stack:
-        raise IndexError('No matching close parenthesis to open parenthesis '
-                         'at index {}'.format(stack.pop()))
-    return parentheses_locs
+PHANTOMJS_EXE_URL = '.\\phantom\\bin\\phantomjs.exe';
+FUNCTION_FILE = 'github.js';
+JSON_TEMP_FILENAME = 'data.json';
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#test = 'PROJECT_{  S.sname  }(SELECT_{  S.rating = 5 }(CROSS(S,R)))'
 
 #assume the operator has been found in the expression
 #assume operator is not the functional operator/aggregates
@@ -142,22 +91,22 @@ def getNode(type_of, text):
 #no whitespace going in
 
 def startsWithOp(expr):
-    print('invoked startsWithOP')
+    #print('invoked startsWithOP')
     expr = expr.strip();
     for op in binary_operators:
         if expr.startswith(op):
-            print(expr + ' starts with ' + op);
+            #print(expr + ' starts with ' + op);
             return True;
     for op in unary_operators:
         if expr.startswith(op):
-            print(expr + ' starts with ' + op);
+            #print(expr + ' starts with ' + op);
             return True;
     #also account for function statement
 
-    print(expr + ' does not starts with operation');
+    #print(expr + ' does not starts with operation');
     return False;
     
-#add function later!    
+# TODO: Add aggregate F operator  
 def createTree(expr):
     tree = {}
     expr = expr.strip();
@@ -192,7 +141,6 @@ def createTree(expr):
             return node;
     elif expr.startswith('RENAME'):
         (operator, condition, first, second) = parseOperator('RENAME', expr)
-        ##print(214, first, second, condition, operator);
         if (condition == first):
             #was not actually renamed
             return createTree(first);
@@ -222,14 +170,11 @@ def createTree(expr):
         #must be binary operation
         for op in binary_operators:
             if expr.startswith(op):
-                print(189, op, expr);
+                #print(189, op, expr);
                 (operator, condition, first, second) = parseOperator(op, expr)
-                print(operator, condition, first, second);
+                #print(operator, condition, first, second);
                 first_node = createTree(first)
                 second_node = createTree(second)
-                #if operator != 'CROSS':
-                #    text = operator + '_{' + condition + '}';
-                #else:
                 text = operator;
                 tree = getNode('operator', text);
                 tree['children'] += [first_node, second_node];
@@ -244,10 +189,7 @@ def createTree(expr):
 
 def createTreeImage(query, image_name):
     tree_text = unicode(json.dumps(createTree(query)));
-    with io.open('data.json', 'w', encoding='utf-8') as f:
-        f.write(tree_text);
-    check_output('.\\phantom\\bin\\phantomjs.exe github.js "' + image_name + '"')
-    os.remove('data.json');
-
-
-#createTreeImage(test, 'hoobaloo2');
+    with io.open(JSON_TEMP_FILENAME, 'w', encoding='utf-8') as fileObj:
+        fileObj.write(tree_text);
+    check_output(PHANTOMJS_EXE_URL + ' ' + FUNCTION_FILE + ' "' + image_name + '"')
+    os.remove(JSON_TEMP_FILENAME);
