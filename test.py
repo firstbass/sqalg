@@ -91,7 +91,7 @@ def from_list_to_relalg(from_list):
   for i in range(len(from_arr)):
 
     # if not the last value
-    if i != len(from_arr)-1:
+    if i != len(from_arr) - 1:
 
       # cross the table with the next value
       cross_text += 'CROSS(' + from_arr[i] + ',';
@@ -106,17 +106,27 @@ def from_list_to_relalg(from_list):
   return cross_text;
 
 
-#Puts a subquery-free query into proper relational algebra
-#Preconditions: select_list,from_list,where_list are the entries in a select, where, and from statement, respectively
-#Postconditions: the lists as translated into relational algebra is returned.
 def relalg(select_list, from_list, where_list):
-  return 'PROJECT_{' + select_list + '}(' + 'SELECT_{' + where_list + '}(' + from_list_to_relalg(from_list) + '))';
+  """ Puts a subquery-free query into proper relational algebra.
+  Preconditions:  select_list, from_list, where_list are entries in a standard
+                  select-from-where statement
+  Postconditions: the lists translated into proper relational algebra """
+
+  relalg_str =  'PROJECT_{' + select_list + '}(';
+  relalg_str += 'SELECT_{'  + where_list  + '}(';
+  relalg_str += from_list_to_relalg(from_list) + '))';
 
 #Split a query into its select, from, and where statements
 #Preconditions: Input query is a valid SQL input.
 #Postconditions: the split query is returned, the contents of the select_list, from_list, 
 #and where_list are returned, and the from_list in relational algebra is returned.
 def select_from_where_nosubquery(query):
+  """ Split a query into its select, from, and where statements
+  Preconditions:  Input query is a valid SQL input
+  Postconditions: The split query is returned, the contents of the select_list,
+                  from_list, and where_list are returned; and the from_list in
+                  relational algebra is returned.
+
   query = re.sub('[\n\s]+',' ', query);
   SELECT_FROM_WHERE = '(SELECT|FROM|WHERE|GROUP BY|HAVING)'# ([\W\w]+) FROM ([\W\w]+) WHERE ([\W\w]+)';
   arr = re.split(SELECT_FROM_WHERE, query);
