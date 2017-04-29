@@ -4,7 +4,7 @@ import sys
 from queries import *
 from test import *
 from relalgtotable import *
-
+import traceback
 document = None;
 schema = None;
 count  = 0;
@@ -171,17 +171,21 @@ else:
     # in the event that an error arises, we exit the current query's execution
     # and move on to the next without any output for the erroring query
     try:
+      #print('__174');
       tree_string = separateAtConjunction(entry, schema);
+      #print('__176');
       tree_name = 'tree_' + str(count);
+      #print('__178');
       createTreeImage(tree_string, tree_name);
-      
+      #print('__180');
       # save the query in a data file
       fileObj = open(tree_name + '.dat', 'wb');
+      #print('__183');
       fileObj.write(entry);
-
+      #print('__185');
       # Close opened file
       fileObj.close()
-
+      #print('__188');
       '''createTreeImage(separatdecorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry),schema)), 'tree_'+str(count));
          createTreeImage(decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(entry))),'tree_'+str(count));
       '''
@@ -193,7 +197,7 @@ else:
     # any other sort of exception should be dealt with as if the parsing failed
     except:
       print('Error: that query was not successfully parsed by our program :(');
-      print(sys.exc_info()[2]);
+      traceback.print_tb(sys.exc_info()[2]);
     
     # no matter what, make sure we move on to the next query
     finally:
