@@ -8,7 +8,6 @@ import io
 import json
 from subprocess import call
 import sys
-
 from subprocess import check_output
 
 binary_operators = ['NATURALJOIN', 'ANTIJOIN', 'CROSS', 'UNION', 'INTERSECT', 'EXCEPT', 'CONTAINS']
@@ -25,31 +24,31 @@ JSON_TEMP_FILENAME = 'data.json';
 def parseOperator(operator, expr):
   s = expr;
   parens = find_parentheses(s);
-  print(parens);
   condition = '';
   first = '';
   second = '';
+  separating_comma_index = -1;
 
   #find the operator
   op_index = s.index(operator);
   print(op_index);
 
-  separating_comma_index = -1;
-
-  #find condition
+  #find conditions
   if operator != 'CROSS':
-    condition = s[s.index('{') + 1:s.index('}')];
+    condition = s[s.index('{') + 1 : s.index('}')];
   
-  #get arguments
-  open_paren_index = s.index('('); #first parentheses
+  # get the first parenthesis in the expression
+  open_paren_index = s.index('(');
+  
+  # find the pair for the first parenthesis
   close_paren_index = parens[open_paren_index];
+  
+  # get a list of all commas in the expression 
   comma_iter = re.finditer(',', s);
-  #if no comma, then its an unary operator
-  # if comma, could be unary or binary
-  #     #determine if there is a 'separating comma'
-        # if separating comma --> binary
-        # else unary
 
+  # determine if there exists a comma in the same level as the top parentheses
+  # if so, it is considered separating and its index is stored in
+  # separating_comma_index, otherwise separating_comma_index = -1
   for comma in comma_iter:
     comma_index = comma.start();
     is_separator = True
@@ -62,13 +61,17 @@ def parseOperator(operator, expr):
         separating_comma_index = comma_index;
         break;
 
-  
+  # if there exists a separating comma, then it is a binary operator
+  # set first to first, second to the second operand
   if separating_comma_index != -1:
     first = s[open_paren_index+1:comma_index]
     second = s[comma_index + 1: close_paren_index]
+
+  # otherwise, there is only one operand set as first
   else:
     first = s[open_paren_index+1:close_paren_index];
 
+  # return pertinent data
   return (operator, condition, first, second);
 
 def getNode(type_of, text):
@@ -240,7 +243,7 @@ def createTreeImage(query, image_name):
     ''' Description.
     Preconditions:  
     Postconditions:  '''
-    
+
     tree_text = unicode(json.dumps(createTree(query)));
     with io.open(JSON_TEMP_FILENAME, 'w', encoding='utf-8') as fileObj:
         fileObj.write(tree_text);
