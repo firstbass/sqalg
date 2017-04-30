@@ -1,66 +1,83 @@
 var tree_num = 0;
 var tree;
+
+// import PhantomJS modules
 var page = require('webpage').create(),
     system = require('system'),
-    fs = require('fs'),
-    tree_string, name;
+    fs = require('fs');
 
-if (system.args.length != 2)
+var tree_string = '',
+    num;
+
+var DATA_FILE_URL = 'data.json';
+var LOG_FILE_URL = 'log.txt';
+
+/* program should be run only as 'phantomjs.exe github.js "filename"' */
+if ( system.args.length != 2 )
 {
-  console.log('__LENGTH__' + system.args.length);
-  console.log('MUST HAVE ONLY NAME ARGUMENT');
-  console.log(system.args);
+  console.error('Error: \'github.js\' was run with invalid number of args');
   phantom.exit(1);
 }
 else
 {
   name = system.args[1];
 }
-// page information
+
+/* viewportSize is the size of the headless browser/screenshot */
 page.viewportSize = { width: 2000, height: 1000 };
+
+/* clipRect is the size of the picture we clip from the browser */
 page.clipRect = { top: 0, left: 0, width: 2000, height: 1000 };
 
-tree_string = '';
-file = 'data.json';
-if (fs.exists(file))
+/* determine whether or not the json data file we need exists. */
+if ( !fs.exists(DATA_FILE_URL) )
 {
-  console.log('"'+file+'" exists.');
-  tree_string = fs.read(file);
+  /* if not, exit */
+  console.log('\'' + DATA_FILE_URL + '\' does not exist');
+  phantom.exit(1); // end the program
 }
 else
 {
-  console.log('"'+file+'" doesn\'t exist.');
-  console.log('error');
-  phantom.exit(1);
+  /* otherwise, obtain the json data */
+  tree_string = fs.read(DATA_FILE_URL);
 }
 
-// Parse JSON string into object
+/* Parse JSON string into object */
 tree = JSON.parse(tree_string);
 
-function log_stuff(msg) {
-  if (!fs.exists('log.txt')) {
-    fs.touch('log.txt');
+
+
+
+
+
+function log_stuff ( msg )
+{
+  if ( !fs.exists(LOG_FILE_URL) )
+  {
+    fs.touch(LOG_FILE_URL);
   }
-  fs.write('log.txt', fs.read('log.txt') + '' + msg,'w')
+  fs.write(LOG_FILE_URL, fs.read(LOG_FILE_URL) + '' + msg, 'w')
 }
 
-page.onConsoleMessage = function(msg, lineNum, sourceId) {
+page.onConsoleMessage = function ( msg, lineNum, sourceId )
+{
   log_stuff('__CONSOLE__: ' + msg);
 }
 
-page.onError = function(msg, trace) {
+page.onError = function ( msg, trace )
+{
 
   var msgStack = ['ERROR: ' + msg];
 
-  if (trace && trace.length) {
+  if ( trace && trace.length )
+  {
     msgStack.push('TRACE:');
-    trace.forEach(function(t) {
+    trace.forEach(function ( t ) {
       msgStack.push(' -> ' + t.file + ': ' + t.line + (t.function ? ' (in function "' + t.function +'")' : ''));
     });
   }
 
   console.error(msgStack.join('\n'));
-
 };
 
 page.onAlert = function (msg) {

@@ -142,7 +142,7 @@ def createTree(expr):
         # the projection is acting upon
         if condition == '*':
             print('==__DEBUG__==: This is a critical point: 141 ==__DEBUG__==')
-            return first;
+            return createTree(first);
 
         # otherwise, return a specialized tree node that
         # specifies the projection
