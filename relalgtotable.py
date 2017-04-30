@@ -19,8 +19,6 @@ FUNCTION_FILE = 'github.js';
 JSON_TEMP_FILENAME = 'data.json';
 
 
-#test = 'PROJECT_{  S.sname  }(SELECT_{  S.rating = 5 }(CROSS(S,R)))'
-
 #assume the operator has been found in the expression
 #assume operator is not the functional operator/aggregates
 #assume always has the underscore with brackets
@@ -74,6 +72,9 @@ def parseOperator(operator, expr):
   return (operator, condition, first, second);
 
 def getNode(type_of, text):
+    ''' Description
+    Preconditions:  
+    Postconditions:  '''
     node = {}
     node['type'] = type_of
     node['text'] = text
@@ -81,113 +82,165 @@ def getNode(type_of, text):
     print(node)
     return node;
 
-
-#
-#binary_operators = ['NATURALJOIN', 'ANTIJOIN', 'CROSS', 'UNION', 'INTERSECT', 'MINUS', 'DIVIDE']
-#unary_operators = ['PROJECT', 'SELECT', 'RENAME', 'RENAMEALL']
-#
-#special_operators = 'PROJECT', 'RENAME', 'RENAMEALL', 'FUNCTION
-
-#no whitespace going in
+################################################################################
 
 def startsWithOp(expr):
-    #print('invoked startsWithOP')
+    ''' Description.
+    Preconditions:  
+    Postconditions:  '''
+
+    # remove excess whitespace
     expr = expr.strip();
+
+    # check if the operation is a binary operator
     for op in binary_operators:
         if expr.startswith(op):
-            #print(expr + ' starts with ' + op);
+            # return true if the operation is binary
             return True;
+
+    # check if the operation is an unary operator
     for op in unary_operators:
         if expr.startswith(op):
-            #print(expr + ' starts with ' + op);
+            # return true if the operation is unary
             return True;
-    #also account for function statement
 
-    #print(expr + ' does not starts with operation');
+    # TODO: Account for Function statement
+
+    # expr does not start with operation
     return False;
-    
+
+################################################################################
 # TODO: Add aggregate F operator  
 def createTree(expr):
+    ''' Recursively builds tree from pseudo-relational algebra where the outermost
+        operation is put at the root of the tree
+    Preconditions:  
+    Postconditions:  '''
+
+    # create the placeholder
     tree = {}
+
+    # remove unnecessary whitespace
     expr = expr.strip();
+
+    # if the given expression is not recognized as a keyword then it is a table
+    # and must become a table-node
     if not startsWithOp(expr):
-        #must be a table
         return getNode('table', expr);
     
+    # if the expression is recognized then...
+
+    # if the expression's outermost keyword is a projection
     elif expr.startswith('PROJECT'):
         (operator, condition, first, second) = parseOperator('PROJECT', expr)
-        if (condition == '*'):
+
+        # if the projection is selecting everything, then 
+        # simply ignore the projection and return whatever 
+        # the projection is acting upon
+        if condition == '*':
+            print('==__DEBUG__==: This is a critical point: 141 ==__DEBUG__==')
             return first;
+
+        # otherwise, return a specialized tree node that
+        # specifies the projection
         else:
             text = 'PROJECT_{' + condition + '}'; 
             node = getNode('operator', text)
             node['children'] += [createTree(first)];
             return node;
+
+    # if the expression's outermost keyword is RENAMEALL
     elif expr.startswith('RENAMEALL'):
         (operator, condition, first, second) = parseOperator('RENAMEALL', expr)
-        if (condition == first):
-            #was not actually renamed
+
+        # if the rename is changing the name to the original name
+        if condition == first:
+
+            # ignore the rename, it is not necessary
             return createTree(first);
-        elif (createTree(first).type == 'table'):
-            #is an alias
+
+        # otherwise, if the rename is operating on a table at the base level
+        # then it is an alias and should be displayed differently
+        elif createTree(first).type == 'table':
             text = condition;
             node = getNode('alias', text);
             node['children'] += [createTree(first)];
             return node;
+
+        # any other case should be shown as a rho rename operation
+        # acting on an intermediate table (i.e. not a base table)
         else:
             text = 'RENAME_{' + condition + '}';
             node = getNode('operator', text);
             node['children'] += [createTree(first)];
             return node;
+
+    # if the expression's outermost operator is RENAME
     elif expr.startswith('RENAME'):
         (operator, condition, first, second) = parseOperator('RENAME', expr)
+        
+        # if the rename is changing the name to the original name
         if (condition == first):
-            #was not actually renamed
+
+            # ignore the rename, it is not necessary
             return createTree(first);
 
+        # if the rename is actually changing the name
         else:
+
+            # create the child node on which the rename is acting
             child = createTree(first);
-            if child['type'] == 'table' or child['type'] == 'alias':
+
+            # if the child is acting on a base-table,
+            # format the rename as an alias
+            if child['type'] in ('table', 'alias'):
                 text = condition;
                 node = getNode('alias', text);
                 node['children'] += [child];
                 return node;
+
+            # otherwise, format as a standard rho operator
             else:
                 text = 'RENAME_{' + condition + '}';
                 node = getNode('operator', text);
                 node['children'] += [child];
                 return node;
+
+    # if the expression's outermost operator is a selection
     elif expr.startswith('SELECT'):
         (operator, condition, first, second) = parseOperator('SELECT', expr)
+        
+        # create a node with selection conditions and set the child node
         first_node = createTree(first)
         text = operator + '_{' + condition + '}';
         tree = getNode('operator', text);
-        ##print(tree);
         tree['children'] += [first_node];
-        ##print(tree);
         return tree;
+
+    # if the expression is not a special/unary operation i.e. a binary operation
     else:
-        #must be binary operation
+        # if the expression starts with a given binary operator
         for op in binary_operators:
             if expr.startswith(op):
-                #print(189, op, expr);
                 (operator, condition, first, second) = parseOperator(op, expr)
-                #print(operator, condition, first, second);
+                
+                # create trees for both of its operands
                 first_node = createTree(first)
                 second_node = createTree(second)
+
+                # create an operator-node with children being operand trees
                 text = operator;
                 tree = getNode('operator', text);
                 tree['children'] += [first_node, second_node];
                 return tree;      
 
-
-
-
-
-
-
+################################################################################
 
 def createTreeImage(query, image_name):
+    ''' Description.
+    Preconditions:  
+    Postconditions:  '''
+    
     tree_text = unicode(json.dumps(createTree(query)));
     with io.open(JSON_TEMP_FILENAME, 'w', encoding='utf-8') as fileObj:
         fileObj.write(tree_text);
