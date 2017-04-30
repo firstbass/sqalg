@@ -238,85 +238,133 @@ def normalize_with_ands(query):
 ################################################################################
 
 def normalize_without_ands(query):
-  ''' Normalize subqueries to be in EXISTS or NOT EXISTS form
+  ''' Recursively normalize subqueries to be in EXISTS or NOT EXISTS form
   Preconditions:  Query is proper SQL
   Postconditions: Returns subqueries in the query in the proper form '''
 
+  print('NORMALIZING THE QUERY [' + query + ']');
+
+  # get information about the 'outer query'
   (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+
   subquery_text='';
-  #print(oselect, owhere, ofrom, ocross)
+
   #make sure we are working from the query above the outermost query, and solve inward-out
   if hasSubquery(query):
+    
+    # get the next subquery
     nextsub = getNextSubQuery(query)
+
+    # normalize with ands (we don't know what its structure is)
     nextsub = normalize_with_ands(nextsub);
+
+    # get information about the 'inner query'
     (iarr, iselect, iwhere, ifrom,icross) = select_from_where_nosubquery(nextsub);
-    #print( iselect, iwhere, ifrom);
-    #phrase_before_in, iselect, iwhere
+    
+    # if there is already an inner where clause, append AND
     if iwhere != '':
       iwhere = iwhere[ : -1];
       iwhere += ' AND ';
-    #print(owhere);
 
-    # Accept Not IN
+    ## MODIFICATION BLOCK FOR "NOT IN" ##
     phrase_before_not_in = '([\d\.\w]+)\s+NOT IN';
     pb4ni = re.search(phrase_before_not_in, owhere);
-    if pb4ni: #adjust query to be in NOT EXISTS form
-      #print('found NOT IN');
-      iwhere += iselect + ' = ' + owhere[pb4ni.start():pb4ni.end()-len('NOT IN')];#add the condition to inner where
-      #print(iwhere);
-      owhere = re.sub(phrase_before_not_in, 'NOT EXISTS', owhere); # replaces NOT IN with NOT exists
-      #print(owhere);
 
-    #accept in
+    # if there is a NOT IN keyword, with a phrase preceding it
+    # then we want to adjust the query to be in NOT EXISTS form
+    if pb4ni:
+
+      # add the condition to inner where-list
+      iwhere += iselect + ' = ' + owhere[pb4ni.start():pb4ni.end()-len('NOT IN')];
+      
+      # remove the phrase from the outer where-list and replace NOT IN with NOT EXISTS
+      owhere = re.sub(phrase_before_not_in, 'NOT EXISTS', owhere); 
+
+
+    ## MODIFICATION BLOCK FOR "IN" ##
     phrase_before_in = '([\d\.\w]+)\s+IN';
     pb4i = re.search(phrase_before_in, owhere);
-    if pb4i: #adjust query to be in EXISTS form
-      #print('found IN');
-      iwhere += iselect + ' = ' + owhere[pb4i.start():pb4i.end()-3]; #add the condition to  inner where
-      #print(iwhere);
-      owhere = re.sub(phrase_before_in, 'EXISTS', owhere); #replace the IN statement with EXISTS 
-      #print(owhere);
+    
+    # if there is an IN keyword, with a phrase preceding it
+    # then we want to adjust the query to be in EXISTS form
+    if pb4i:
 
-    #accept ALL
+      # add the condition to the inner where-list
+      iwhere += iselect + ' = ' + owhere[pb4i.start():pb4i.end()-3];
+      
+      # remove the phrase from the outer where-list and replace IN with EXISTS
+      owhere = re.sub(phrase_before_in, 'EXISTS', owhere);
+
+
+    ## MODIFICATION BLOCK FOR "ALL" ##
+
+    # split the outer where-list by whitespace (into words)
     owhere_arr = re.split('\s+', owhere);
-    #print(owhere_arr);
+    
     #may need to do this in REGEX to avoid issues
-    if (owhere_arr.count('ALL') != 0):
+    
+    # if there is at least an ALL keyword in the outer-where list
+    if owhere_arr.count('ALL') > 0:
+
+      # get the index of the first instance
       all_index = owhere_arr.index('ALL');
-      if (all_index != -1): #found ALL
-        #print('found ALL');
-        #print(owhere_arr.index('ALL'));
+
+      # this I think is a bit overkill
+      if all_index != -1:
+
+        # op_index is the index in the owhere table of the operator
         op_index = all_index - 1;
+
+        # pb4all is the index in the owhere table of the phrase before ALL
         pb4all = owhere_arr[op_index-1];
-        iwhere += pb4all + comp_op(owhere_arr[op_index]) + iselect; #invert the logic and add it to inner where
-        #print(iwhere);
-        owhere = re.sub('([\d\.\w]+)\s+[><=]+\s+ALL','NOT EXISTS', owhere) #change statement to NOT EXISTS
+
+        # add the phrase with inverted operation to the inner where-list
+        iwhere += pb4all + comp_op(owhere_arr[op_index]) + iselect;
+        
+        # remove the phrase and operation, and replace ALL with NOT EXISTS
+        # in the outer where-list
+        owhere = re.sub('([\d\.\w]+)\s+[><=]+\s+ALL','NOT EXISTS', owhere)
         #print(owhere);
 
-    #accept ANY
+
+    ## MODIFICATION BLOCK FOR "ANY" ##
+
+    # split the outer where-list by whitespace (into words)
     owhere_arr = re.split('\s+', owhere);
-    #print(owhere_arr);
+
     #may need to do this with REGEX to avoid issues
+    
+    # if there is at least an ANY keyword in the outer-where list
     if (owhere_arr.count('ANY') > 0):
-      any_index = owhere_arr.index('ANY');
-      #print(any_index);
-      if (any_index != -1): #found ANY
-        #print('found ANY');
-        #print(owhere_arr.index('ANY'));
-        op_index = any_index - 1; #figure out where operator is
-        pb4any = owhere_arr[op_index-1];
-        iwhere += pb4any + owhere_arr[op_index] + iselect; #add statement to inner where
-        #print(iwhere);
-        owhere = re.sub('(\w+)\s+[><=]+\s+ANY','EXISTS', owhere) #change statement to EXISTS
-        #print(owhere);
 
-    #accept comparison operator
+      # get the index of the first instance
+      any_index = owhere_arr.index('ANY');
+
+      # this I think is a bit overkill
+      if (any_index != -1):
+
+        # op_index is the index in the owhere table of the operator
+        op_index = any_index - 1;
+        
+        # pb4any is the index in the owhere table of the phrase before ANY
+        pb4any = owhere_arr[op_index-1];
+
+        # add the phrase with operation to the inner where-list
+        iwhere += pb4any + owhere_arr[op_index] + iselect;
+
+        # remove the phrase and operation and change ANY to EXISTS
+        owhere = re.sub('(\w+)\s+[><=]+\s+ANY','EXISTS', owhere);
+
+    ## MODIFICATION BLOCK FOR COMPARISONS ##
+
+    # split the outer where-list by whitespace (into words)
     owhere_arr = re.split('\s+', owhere);
-    #print(owhere_arr);
     op = '';
+
+
     for entry in owhere_arr:
       op_match = re.match('[><=]+', entry);
-      if op_match: #operator has been found
+      if op_match:
         op = entry;
         break;
     if (op != ''):
@@ -327,7 +375,7 @@ def normalize_without_ands(query):
         #print(iwhere);
         owhere = re.sub('([\d\.\w]+)\s+[><=]+','EXISTS', owhere) #change statement to EXISTS
         #print(owhere);
-
+    
     subquery_text = 'SELECT ' + iselect + ' FROM ' + ifrom + ' WHERE ' + iwhere;
   query_text = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere;
   if subquery_text != '':
@@ -486,11 +534,11 @@ def fix_correlated_subquery(query, schema, parent_rename_map = { }):
 
 ################################################################################
 
-def decorrelate_disconjuctive(query):
+'''def decorrelate_disconjuctive(query):'''
   ''' Description.
   Preconditions:  none.
   Postconditions: none. '''
-
+'''
   ORcond = [];
   ANDcond = '';
   query=re.sub(';','',query);
@@ -514,7 +562,7 @@ def decorrelate_disconjuctive(query):
   query +=';';
   ##print(query);
   return query;
-
+'''
 ################################################################################
 
 def decorrelate_conjunctive(query,schema):
@@ -522,7 +570,7 @@ def decorrelate_conjunctive(query,schema):
   Preconditions:  Query already has context relations take into account
   Postconditions: query in its relational algebra form '''
 
-  # already added context relations to the from list
+  # already added context relations to the from-list
   subquery = '';
   subquery_free_part = '';
   exists = [];

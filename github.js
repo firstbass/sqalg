@@ -56,7 +56,7 @@ function log_stuff ( msg )
   {
     fs.touch(LOG_FILE_URL);
   }
-  fs.write(LOG_FILE_URL, fs.read(LOG_FILE_URL) + '' + msg, 'w')
+  fs.write(LOG_FILE_URL, fs.read(LOG_FILE_URL) + '' + msg + '\n', 'w')
 }
 
 page.onConsoleMessage = function ( msg, lineNum, sourceId )
