@@ -532,6 +532,7 @@ def fix_correlated_subquery(query, schema, parent_rename_map = { }):
 
     # recursively call the current function on the inner query because we now
     # have the list of context relations relevant to it
+    print('@@ 535 @@: ' + subquery);
     subquery = fix_correlated_subquery(subquery, schema, updated_rename_map);
     
   

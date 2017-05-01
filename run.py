@@ -129,14 +129,17 @@ def separateAtConjunction(query,sch):
     if is_separator:
       first_actual_conj = conj;
 
+  first_subquery = '';
+  second_subquery = '';
   # if no top-level query conjunction is found
   if first_actual_conj != None:
     return_str = '';
+
+    first_subquery = queryToRelalg(query[0:first_actual_conj.start()],sch);
+    second_subquery = queryToRelalg(query[first_actual_conj.end():],sch);
+
     return_str += query[first_actual_conj.start():first_actual_conj.end()].strip();
-    return_str += '('
-    return_str += queryToRelalg(query[0:first_actual_conj.start()],sch);
-    return_str += ' , '
-    return_str += queryToRelalg(query[first_actual_conj.end():],sch) + ')';
+    return_str += '(' + first_subquery + ' , ' + second_subquery + ')';
     print(return_str);
     return return_str;
   else:
@@ -168,7 +171,9 @@ else:
 
   # selects queries presented to us of the form (a. ----- ;)
   for entry in re.findall('\w\.\s+(.+?)\;',document):
-
+    if count < 1:
+      count = count + 1;
+      continue;
     # in the event that an error arises, we exit the current query's execution
     # and move on to the next without any output for the erroring query
     try:
