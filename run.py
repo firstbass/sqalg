@@ -140,7 +140,8 @@ def separateAtConjunction(query,sch):
     print(return_str);
     return return_str;
   else:
-    return decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(shedParens(query)),sch),sch);
+    return query_into_relational_algebra(shedParens(query), sch);
+    #return decorrelate_conjunctive(fix_all_correlated_subquery(normalize_with_ands(shedParens(query)),sch),sch);
     #return postSplitting(query);
 
 # commands must be given as 'run.py <filename>'
@@ -203,4 +204,4 @@ else:
     # no matter what, make sure we move on to the next query
     finally:
       count += 1;
-      raw_input('Press enter');
+      raw_input('Press enter (' + str(count-1) + ')...');

@@ -244,3 +244,3908 @@ __CONSOLE__: return text: \rho_{R}(RESERVES)
 __CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
 __CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
 __CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}()
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}()))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}()
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}()))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())))
+__CONSOLE__: ________________________________190__________________________ 0 0
+__CONSOLE__: ________________________________190__________________________ 0 1
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ B.BID, COUNT (*) AS RESERVATIONCOUNT }
+__CONSOLE__: 341 now PROJECT_{ B.BID, COUNT (*) AS RESERVATIONCOUNT }
+__CONSOLE__: 341 now \pi_{ B.BID, COUNT (*) AS RESERVATIONCOUNT }
+__CONSOLE__: 341 now \pi_{ B.BID, COUNT (*) AS RESERVATIONCOUNT }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ B.BID, COUNT (*) AS RESERVATIONCOUNT }
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{ B.BID, COUNT (*) AS RESERVATIONCOUNT }()
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}()
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}()))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}()
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}()))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}()
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}()))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 272
+__CONSOLE__: 
+__CONSOLE__: return text: 
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}()
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}()))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}())))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 0.5 6
+__CONSOLE__: ________________________________190__________________________ 1.5 6
+__CONSOLE__: ________________________________190__________________________ 0.5 7
+__CONSOLE__: ________________________________190__________________________ 1.5 7
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))))
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }
+__CONSOLE__: 341 now \sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }
+__CONSOLE__: 341 now \sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }
+__CONSOLE__: 341 now \sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }
+__CONSOLE__: 272
+__CONSOLE__: S2.AGE
+__CONSOLE__: return text: S2.AGE
+__CONSOLE__: return text: \sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }(S2.AGE)
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }(S2.AGE))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }(S2.AGE)))
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }(S2.AGE))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.SID = S2.SID S2.RATING = 1 AND S.AGE> MAX (S2.AGE) }(S2.AGE)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=103}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=103}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: ________________________________190__________________________ 0.75 0
+__CONSOLE__: ________________________________190__________________________ 0.75 1
+__CONSOLE__: ________________________________190__________________________ 0.75 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1.5 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 2 5
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now UNION
+__CONSOLE__: 341 now \cup
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cup (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{ R.SID = S.SID AND R.BID = 100 AND R.RATING > 5 AND R.DAY = '8/9/09'}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: 152 0.5 0 1.5 0
+__CONSOLE__: 159 0.5 Infinity 2.5 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 2.5 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 2.5 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 2.5 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 2 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 2.5 5
+__CONSOLE__: ________________________________190__________________________ 3.5 5
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now INTERSECT
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 341 now \cap
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ SNAME }
+__CONSOLE__: 341 now PROJECT_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 341 now \pi_{ SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: (BOATS) \times (RESERVES)
+__CONSOLE__: return text: (SAILORS) \times ((BOATS) \times (RESERVES))
+__CONSOLE__: return text: \sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))
+__CONSOLE__: return text: \pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES))))
+__CONSOLE__: return text: (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='RED'}((SAILORS) \times ((BOATS) \times (RESERVES))))) \cap (\pi_{ SNAME }(\sigma_{ SAILORS.SID=RESERVES.SID AND RESERVES.BID=BOATS.BID AND BOATS.COLOR='GREEN'}((SAILORS) \times ((BOATS) \times (RESERVES)))))
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0 0 1 0
+__CONSOLE__: 159 0 0.5 1.5 -0.5
+__CONSOLE__: 152 0.75 0 1.75 0
+__CONSOLE__: 159 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 152 0.75 Infinity 3.25 -Infinity
+__CONSOLE__: 159 0.75 Infinity 3.75 -Infinity
+__CONSOLE__: ________________________________190__________________________ -Infinity 0
+__CONSOLE__: ________________________________190__________________________ -Infinity 1
+__CONSOLE__: ________________________________190__________________________ 3.75 1
+__CONSOLE__: ________________________________190__________________________ -Infinity 2
+__CONSOLE__: ________________________________190__________________________ 3.75 2
+__CONSOLE__: ________________________________190__________________________ -Infinity 3
+__CONSOLE__: ________________________________190__________________________ 3.75 3
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 4
+__CONSOLE__: ________________________________190__________________________ 3 4
+__CONSOLE__: ________________________________190__________________________ 4.5 4
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 5
+__CONSOLE__: ________________________________190__________________________ 3 5
+__CONSOLE__: ________________________________190__________________________ 4 5
+__CONSOLE__: ________________________________190__________________________ 5 5
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ -Infinity 6
+__CONSOLE__: ________________________________190__________________________ 4 6
+__CONSOLE__: ________________________________190__________________________ 5 6
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 341 now EXCEPT
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SID }
+__CONSOLE__: 341 now PROJECT_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 341 now \pi_{ S.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B}(BOATS)
+__CONSOLE__: return text: (\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS))))
+__CONSOLE__: return text: \pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S2.SID }
+__CONSOLE__: 341 now PROJECT_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 341 now \pi_{ S2.SID }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S2.SID }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S2
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S2}(SAILORS)
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: R2
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R2}(RESERVES)
+__CONSOLE__: 279
+__CONSOLE__: B2
+__CONSOLE__: 272
+__CONSOLE__: BOATS
+__CONSOLE__: return text: BOATS
+__CONSOLE__: return text: \rho_{B2}(BOATS)
+__CONSOLE__: return text: (\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))
+__CONSOLE__: return text: (\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))
+__CONSOLE__: return text: \sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))
+__CONSOLE__: return text: \pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS)))))
+__CONSOLE__: return text: (\pi_{ S.SID }(\sigma_{ S.SID=R.SID AND R.BID=B.BID AND B.COLOR='RED'}((\rho_{S}(SAILORS)) \times ((\rho_{R}(RESERVES)) \times (\rho_{B}(BOATS)))))) EXCEPT (\pi_{ S2.SID }(\sigma_{ S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='GREEN'}((\rho_{S2}(SAILORS)) \times ((\rho_{R2}(RESERVES)) \times (\rho_{B2}(BOATS))))))
+__CONSOLE__: ________________________________190__________________________ 0.5 0
+__CONSOLE__: ________________________________190__________________________ 0.5 1
+__CONSOLE__: ________________________________190__________________________ 0.5 2
+__CONSOLE__: ________________________________190__________________________ 0 3
+__CONSOLE__: ________________________________190__________________________ 1 3
+__CONSOLE__: ________________________________190__________________________ 0 4
+__CONSOLE__: ________________________________190__________________________ 1 4
+__CONSOLE__: ________________________________190__________________________ 1 5
+__CONSOLE__: ________________________________190__________________________ 0.5 6
+__CONSOLE__: ________________________________190__________________________ 1.5 6
+__CONSOLE__: ________________________________190__________________________ 0.5 7
+__CONSOLE__: ________________________________190__________________________ 1.5 7
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now PROJECT_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 341 now \pi_{ S.SNAME }
+__CONSOLE__: 297
+__CONSOLE__: \pi_{ S.SNAME }
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 341 now \sigma_{}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{}
+__CONSOLE__: 341 now NATURALJOIN
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 341 now \bowtie
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 284
+__CONSOLE__: PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now PROJECT_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 341 now \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}
+__CONSOLE__: 284
+__CONSOLE__: SELECT_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 297
+__CONSOLE__: \sigma_{ R.BID = 10 AND R.SID = S.SID}
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 341 now \times
+__CONSOLE__: 279
+__CONSOLE__: S
+__CONSOLE__: 272
+__CONSOLE__: SAILORS
+__CONSOLE__: return text: SAILORS
+__CONSOLE__: return text: \rho_{S}(SAILORS)
+__CONSOLE__: 279
+__CONSOLE__: R
+__CONSOLE__: 272
+__CONSOLE__: RESERVES
+__CONSOLE__: return text: RESERVES
+__CONSOLE__: return text: \rho_{R}(RESERVES)
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))
+__CONSOLE__: return text: \sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))
+__CONSOLE__: return text: \pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))
+__CONSOLE__: return text: (\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))))
+__CONSOLE__: return text: \sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES))))))
+__CONSOLE__: return text: \pi_{ S.SNAME }(\sigma_{}((\rho_{S}(SAILORS)) \bowtie (\pi_{S.RATING, S.AGE, S.SNAME, S.SID}(\sigma_{ R.BID = 10 AND R.SID = S.SID}((\rho_{S}(SAILORS)) \times (\rho_{R}(RESERVES)))))))

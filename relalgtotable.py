@@ -31,7 +31,7 @@ def parseOperator(operator, expr):
 
   #find the operator
   op_index = s.index(operator);
-  print(op_index);
+  print(operator);
 
   #find conditions
   if operator != 'CROSS':
@@ -63,7 +63,7 @@ def parseOperator(operator, expr):
 
   # if there exists a separating comma, then it is a binary operator
   # set first to first, second to the second operand
-  if separating_comma_index != -1:
+  if separating_comma_index != -1 and not (operator in unary_operators):
     first = s[open_paren_index+1:comma_index]
     second = s[comma_index + 1: close_paren_index]
 
@@ -129,6 +129,8 @@ def createTree(expr):
     # if the given expression is not recognized as a keyword then it is a table
     # and must become a table-node
     if not startsWithOp(expr):
+        print('### ERROR 132 ###: Unrecognized expression');
+        print(expr);
         return getNode('table', expr);
     
     # if the expression is recognized then...
@@ -136,7 +138,7 @@ def createTree(expr):
     # if the expression's outermost keyword is a projection
     elif expr.startswith('PROJECT'):
         (operator, condition, first, second) = parseOperator('PROJECT', expr)
-
+        print(operator, condition, first, second);
         # if the projection is selecting everything, then 
         # simply ignore the projection and return whatever 
         # the projection is acting upon
@@ -155,7 +157,7 @@ def createTree(expr):
     # if the expression's outermost keyword is RENAMEALL
     elif expr.startswith('RENAMEALL'):
         (operator, condition, first, second) = parseOperator('RENAMEALL', expr)
-
+        print(operator, condition, first, second);
         # if the rename is changing the name to the original name
         if condition == first:
 
@@ -181,7 +183,7 @@ def createTree(expr):
     # if the expression's outermost operator is RENAME
     elif expr.startswith('RENAME'):
         (operator, condition, first, second) = parseOperator('RENAME', expr)
-        
+        print(operator, condition, first, second);
         # if the rename is changing the name to the original name
         if (condition == first):
 
@@ -212,7 +214,7 @@ def createTree(expr):
     # if the expression's outermost operator is a selection
     elif expr.startswith('SELECT'):
         (operator, condition, first, second) = parseOperator('SELECT', expr)
-        
+        print(operator, condition, first, second);
         # create a node with selection conditions and set the child node
         first_node = createTree(first)
         text = operator + '_{' + condition + '}';
@@ -226,7 +228,7 @@ def createTree(expr):
         for op in binary_operators:
             if expr.startswith(op):
                 (operator, condition, first, second) = parseOperator(op, expr)
-                
+                print(operator, condition, first, second);
                 # create trees for both of its operands
                 first_node = createTree(first)
                 second_node = createTree(second)

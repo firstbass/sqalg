@@ -361,34 +361,48 @@ def normalize_without_ands(query):
     owhere_arr = re.split('\s+', owhere);
     op = '';
 
-
+    # for each word, check if it is an operation
     for entry in owhere_arr:
       op_match = re.match('[><=]+', entry);
+
+      # if so, mark it and continue
       if op_match:
         op = entry;
         break;
-    if (op != ''):
-        #print('found operator');
+
+    # if there was an operation
+    if op != '':
+
+        # op_index is the index in the owhere table of the operator
         op_index = owhere_arr.index(op);
+
+        # pb4op is the index in the owhere table of the phrase before the operator
         pb4op = owhere_arr[op_index - 1];
-        iwhere += pb4op + op + iselect;#insert conidition with operator into inner select
-        #print(iwhere);
-        owhere = re.sub('([\d\.\w]+)\s+[><=]+','EXISTS', owhere) #change statement to EXISTS
-        #print(owhere);
-    
+
+        # add the phrase with operation to the inner where-list
+        iwhere += pb4op + op + iselect;
+
+        # remove the phrase and operation and add EXISTS
+        owhere = re.sub('([\d\.\w]+)\s+[><=]+','EXISTS', owhere);
+
+    # once all substitutions have been completed, reform the subquery
     subquery_text = 'SELECT ' + iselect + ' FROM ' + ifrom + ' WHERE ' + iwhere;
+
+  # once all substitutions have (or haven't) been completed, reform the outer query
   query_text = 'SELECT'  + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere;
+
+  # if the subquery existed then push it to the end of the outer query
   if subquery_text != '':
     query_text += subquery_text + ')';
 
-    #print(query_text);
+  # return the updated query
   return query_text;
-    #should we return query_text?
 
 ################################################################################
 
 def getRenameMap(from_list, q_arr):
   ''' Get a list of what all functions were renamed, for context relations
+      returns dictionary {renamedTable:actualTable}
   Preconditions:  from_list is a proper from_list, Q_arr is a query
   Postconditions: a map of renamed tables to their original names is returned '''
 
@@ -410,23 +424,27 @@ def fix_all_correlated_subquery(query, schema, parent_rename_map = { }):
   Preconditions:  none.
   Postconditions: none. '''
 
-  keywords = ['ABSOLUTE','EXEC','OVERLAPS','ACTION','EXECUTE','PAD','ADA','EXISTS','PARTIAL','ADD','EXTERNAL','PASCAL','ALL','EXTRACT','POSITION','ALLOCATE','FALSE','PRECISION','ALTER','FETCH','PREPARE','AND','FIRST','PRESERVE','ANY','FLOAT','PRIMARY','ARE','FOR','PRIOR','AS','FOREIGN','PRIVILEGES','ASC','FORTRAN','PROCEDURE','ASSERTION','FOUND','PUBLIC','AT','FROM','READ','AUTHORIZATION','FULL','REAL','AVG','GET','REFERENCES','BEGIN','GLOBAL','RELATIVE','BETWEEN','GO','RESTRICT','BIT','GOTO','REVOKE','BIT_LENGTH','GRANT','RIGHT','BOTH','GROUP','ROLLBACK','BY','HAVING','ROWS','CASCADE','HOUR','SCHEMA','CASCADED','IDENTITY','SCROLL','CASE','IMMEDIATE','SECOND','CAST','IN','SECTION','CATALOG','INCLUDE','SELECT','CHAR','INDEX','SESSION','CHAR_LENGTH','INDICATOR','SESSION_USER','CHARACTER','INITIALLY','SET','CHARACTER_LENGTH','INNER','SIZE','CHECK','INPUT','SMALLINT','CLOSE','INSENSITIVE','SOME','COALESCE','INSERT','SPACE','COLLATE','INT','SQL','COLLATION','INTEGER','SQLCA','COLUMN','INTERSECT','SQLCODE','COMMIT','INTERVAL','SQLERROR','CONNECT','INTO','SQLSTATE','CONNECTION','IS','SQLWARNING','CONSTRAINT','ISOLATION','SUBSTRING','CONSTRAINTS','JOIN','SUM','CONTINUE','KEY','SYSTEM_USER','CONVERT','LANGUAGE','TABLE','CORRESPONDING','LAST','TEMPORARY','COUNT','LEADING','THEN','CREATE','LEFT','TIME','CROSS','LEVEL','TIMESTAMP','CURRENT','LIKE','TIMEZONE_HOUR','CURRENT_DATE','LOCAL','TIMEZONE_MINUTE','CURRENT_TIME','LOWER','TO','CURRENT_TIMESTAMP','MATCH','TRAILING','CURRENT_USER','MAX','TRANSACTION','CURSOR','MIN','TRANSLATE','DATE','MINUTE','TRANSLATION','DAY','MODULE','TRIM','DEALLOCATE','MONTH','TRUE','DEC','NAMES','UNION','DECIMAL','NATIONAL','UNIQUE','DECLARE','NATURAL','UNKNOWN','DEFAULT','NCHAR','UPDATE','DEFERRABLE','NEXT','UPPER','DEFERRED','NO','USAGE','DELETE','NONE','USER','DESC','NOT','USING','DESCRIBE','NULL','VALUE','DESCRIPTOR','NULLIF','VALUES','DIAGNOSTICS','NUMERIC','VARCHAR','DISCONNECT','OCTET_LENGTH','VARYING','DISTINCT','OF','VIEW','DOMAIN','ON','WHEN','DOUBLE','ONLY','WHENEVER','DROP','OPEN','WHERE','ELSE','OPTION','WITH','END','OR','WORK','END-EXEC','ORDER','WRITE','ESCAPE','OUTER','YEAR','EXCEPT','OUTPUT','ZONE','EXCEPTION']
-  #Get to innermost subquery
   subquery = '';
-  #print('175', query);
-  #top-level query
-  (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
-  (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
-
   new_where = '';
-  new_str = ' '.join(oarr[oarr.index('WHERE')+1:])
-  new_str = re.sub('[\n\s]+',' ', new_str)
+  
+  # obtain information about the query
+  (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
 
+  # get anything after the first WHERE in the query and join with spaces
+  new_str = ' '.join(oarr[oarr.index('WHERE')+1:])
+  new_str = simplify_whitespace(new_str);
+
+  # get dictionary of parenthesis pairs in new_str
   parens = find_parentheses(new_str)
 
+  # get list of all ANDs 
   ands = re.finditer('\s+AND\s+', new_str)
   actual_ands = [];
   sub_wheres = [];
+
+  # for each AND, determine whether it is acting on the top-level query
+  # or on a subquery. If it is a top-level query add its information to
+  # actual_ands
   for a in ands:
     a_index = a.start();
     is_separator = True
@@ -436,133 +454,150 @@ def fix_all_correlated_subquery(query, schema, parent_rename_map = { }):
             is_separator = False;
     if is_separator:
         actual_ands += [a];
+
+  # if there are no top-level ANDs, then we move on to fixing the query
+  # as if it has no ANDs
   if len(actual_ands) == 0:
-    print(162);
     return fix_correlated_subquery(query, schema);
+
+  # otherwise, we need to create new temporary queries using the paradigm:
+  #   SELECT A FROM B WHERE C AND D; ==> SELECT A FROM B WHERE C
+  #                                  ==> SELECT A FROM B WHERE D
+  # (C, D are examples of "subwheres")
   else:
+    # for each top-level AND found
     for ai in range(len(actual_ands)):
-        print(ai);
         
+        # if it is the last AND, get the subwhere after it
         if ai == len(actual_ands) - 1:
             sub_wheres += [new_str[actual_ands[ai].end():]];
+
+        # always get the subwhere before the AND
         if ai == 0:
             sub_wheres += [new_str[:actual_ands[ai].start()]]
         else:
             sub_wheres += [new_str[actual_ands[ai-1].end():actual_ands[ai].start()]]
 
+    # for each subwhere,
     for where in sub_wheres:
+
+        # create a new temporary query that uses the same select-list, from-list
+        # but changes the WHERE statement to be the subwhere
         subwheretext = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + where;
+        
+        # recursively fix correlated subqueries within the temporary query
         fixed_part = fix_all_correlated_subquery(subwheretext, schema);
+
+        # AND together each fixed part of each temporary query
         if new_where == '':
             new_where = fixed_part[fixed_part.index('WHERE')+len('WHERE'):]
         else:
             new_where += ' AND ' + fixed_part[fixed_part.index('WHERE')+len('WHERE'):]
-  print('new_where', new_where);
+    
+  # return the fixed query
   return 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + new_where;
 
 ################################################################################
 
 def fix_correlated_subquery(query, schema, parent_rename_map = { }):
-  ''' Fix context relations in correlated subqueries
-  Preconditions:  Query is a valid SQL query, Parent_rename_map is the table of all renamed values
+  ''' Fix context relations in queries with a single correlated subqueries
+  Preconditions:  Query is a valid SQL query, Parent_rename_map is the 
+                  table of all renamed values in the query's parent query
   Postconditions: the query with solved context relations is returned '''
 
-  keywords = ['ABSOLUTE','EXEC','OVERLAPS','ACTION','EXECUTE','PAD','ADA','EXISTS','PARTIAL','ADD','EXTERNAL','PASCAL','ALL','EXTRACT','POSITION','ALLOCATE','FALSE','PRECISION','ALTER','FETCH','PREPARE','AND','FIRST','PRESERVE','ANY','FLOAT','PRIMARY','ARE','FOR','PRIOR','AS','FOREIGN','PRIVILEGES','ASC','FORTRAN','PROCEDURE','ASSERTION','FOUND','PUBLIC','AT','FROM','READ','AUTHORIZATION','FULL','REAL','AVG','GET','REFERENCES','BEGIN','GLOBAL','RELATIVE','BETWEEN','GO','RESTRICT','BIT','GOTO','REVOKE','BIT_LENGTH','GRANT','RIGHT','BOTH','GROUP','ROLLBACK','BY','HAVING','ROWS','CASCADE','HOUR','SCHEMA','CASCADED','IDENTITY','SCROLL','CASE','IMMEDIATE','SECOND','CAST','IN','SECTION','CATALOG','INCLUDE','SELECT','CHAR','INDEX','SESSION','CHAR_LENGTH','INDICATOR','SESSION_USER','CHARACTER','INITIALLY','SET','CHARACTER_LENGTH','INNER','SIZE','CHECK','INPUT','SMALLINT','CLOSE','INSENSITIVE','SOME','COALESCE','INSERT','SPACE','COLLATE','INT','SQL','COLLATION','INTEGER','SQLCA','COLUMN','INTERSECT','SQLCODE','COMMIT','INTERVAL','SQLERROR','CONNECT','INTO','SQLSTATE','CONNECTION','IS','SQLWARNING','CONSTRAINT','ISOLATION','SUBSTRING','CONSTRAINTS','JOIN','SUM','CONTINUE','KEY','SYSTEM_USER','CONVERT','LANGUAGE','TABLE','CORRESPONDING','LAST','TEMPORARY','COUNT','LEADING','THEN','CREATE','LEFT','TIME','CROSS','LEVEL','TIMESTAMP','CURRENT','LIKE','TIMEZONE_HOUR','CURRENT_DATE','LOCAL','TIMEZONE_MINUTE','CURRENT_TIME','LOWER','TO','CURRENT_TIMESTAMP','MATCH','TRAILING','CURRENT_USER','MAX','TRANSACTION','CURSOR','MIN','TRANSLATE','DATE','MINUTE','TRANSLATION','DAY','MODULE','TRIM','DEALLOCATE','MONTH','TRUE','DEC','NAMES','UNION','DECIMAL','NATIONAL','UNIQUE','DECLARE','NATURAL','UNKNOWN','DEFAULT','NCHAR','UPDATE','DEFERRABLE','NEXT','UPPER','DEFERRED','NO','USAGE','DELETE','NONE','USER','DESC','NOT','USING','DESCRIBE','NULL','VALUE','DESCRIPTOR','NULLIF','VALUES','DIAGNOSTICS','NUMERIC','VARCHAR','DISCONNECT','OCTET_LENGTH','VARYING','DISTINCT','OF','VIEW','DOMAIN','ON','WHEN','DOUBLE','ONLY','WHENEVER','DROP','OPEN','WHERE','ELSE','OPTION','WITH','END','OR','WORK','END-EXEC','ORDER','WRITE','ESCAPE','OUTER','YEAR','EXCEPT','OUTPUT','ZONE','EXCEPTION']
+  # SOME LOGICAL PROBLEMS INCLUDED, TEST THIS MORE
+
   #Get to innermost subquery
   subquery = '';
-  #print('175', query);
+
+  # obtain information about the query (outer query)
   (oarr, oselect, owhere, ofrom, ocross) = select_from_where_nosubquery(query);
+
+  # if the outer query has a subquery, make sure it has been fixed first
   if hasSubquery(query):
+
+    # store the subquery (inner query) and get information about it
     subquery = getNextSubQuery(query);
     (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
-    print(430,parent_rename_map);
+    
+
+    # parent_rename_map has rename values for the parent of the outer query
+    # we create an updated version such that it is accurate for the parent of
+    # the inner query (i.e. the outer query)
     updated_rename_map = parent_rename_map.copy();
+
+    # get renamed values for the outer query and push them to the map
     rnm = getRenameMap(ofrom, oarr);
-    updated_rename_map.update(rnm);#make sure we understand all currently available context relations
-    #print(updated_rename_map, 183, query);
-    #print('unfixed subquery: ' + subquery)
-    subquery = fix_correlated_subquery(subquery, schema, updated_rename_map); #send the list of context relations to the child
-    #print('fixed subquery: ' + subquery)
-    #in the where make sure everything belongs to the from
+    updated_rename_map.update(rnm);
+
+    # recursively call the current function on the inner query because we now
+    # have the list of context relations relevant to it
+    subquery = fix_correlated_subquery(subquery, schema, updated_rename_map);
+    
+  
+  # find all words in the outer query where-list
   wherarr=re.findall('[\w\d]*\.*[\w\d]+', owhere);
 
+  # redo the map?
   rename_map = getRenameMap(ofrom, oarr);
   print(442, rename_map);
-  #print(wherarr);
-  for entry in wherarr: #go through and  find context relation
-    #print(wherarr);
-    if entry != 'EXISTS': #EXISTS is definitely not a context relation
-      #print('entry start');
-      #print(entry);
-      #stolen from validAttributes Function
-      if re.match('[\w\d]+\.[\w\d]+', entry): #if there is a ., we have to check if the phrase before the . is in our rename table 
-        #print(entry, parent_rename_map, rename_map);
-        attr = entry[entry.index('.') + 1:] 
-        table = entry[0:entry.index('.')]
-        #print('a: ',attr, table, table in rename_map.keys() or table in parent_rename_map.keys())
+  
+  # for each word in the outer query
+  for entry in wherarr: 
+    
+    # if the word is not a keyword (EXISTS is not a context relation)
+    if entry != 'EXISTS':
+
+      # if the word is an attribute directly associated with a table (A.B)
+      if re.match('[\w\d]+\.[\w\d]+', entry):
+
+        # verify that the table name is a valid table name
+        attr = entry[entry.index('.') + 1 :] 
+        table = entry[0 : entry.index('.')]
+
+        # if the table name is not a valid renamed table
         if not (table in rename_map.keys()):
           #ifrom = 'CROSS(RENAME_{' + table + '}(' + rename_map[table] + '),' + ifrom + ')';
-          #print('do nothing');
         #else:
           print(458, parent_rename_map);
           print(460, table);
-          ofrom = 'RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom; #label the query as RENAMEALL, to denote a context relation
-          #print(subquery);
+
+          #label the table as RENAMEALL, to denote a context relation
+          ofrom = 'RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom;
         
-      else: #the query is simply a single word, we must check if the attribute works in the proper spot
+      # if the word is a single word, we must check if the attribute works
+      else:
+
+        # look through each currently available table (using local from-list) 
+        # and see if the word is a valid attribute for that table. 
+        # If so, set flag=true, else flag=false
         flag = False;
-        #print(rename_map);
         for table in rename_map.values():
           if entry in schema[table].keys():
-            #we got one that's good - the attribute is in a directly related table
             flag = True;
-            break#RA
+            break # RA
 
-        if not flag: #it's not in immediately available tables - we know it's a context relation then
+        # if there is no valid attribute currently available, then there is
+        # a context relation that we must employ and specify (for our sake)
+        if not flag:
           for table in parent_rename_map.values():
             if entry in schema[table]:
-              #found it
+
+              # there is a valid context relation for this attribute
+              # we denote it with a RENAMEALL and cross it with the rest of the
+              # from-list
               ofrom = 'CROSS(RENAMEALL_{' + table + '}(' + parent_rename_map[table] + '),' + ofrom + ')';
-      #print('entry end');
+
+  # update the query
   query = 'SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + owhere + subquery;
+  
+  # if there was a subquery, make sure to get the ending parenthesis
   if subquery != '':
       query += ')';
-  print(419,query);
+
   return query;
 #NOT FINISHED, NAIVE AND DOES NOT APPLY ANY LOGICAL CORRECTIONS
 
-
-################################################################################
-
-'''def decorrelate_disconjuctive(query):'''
-  ''' Description.
-  Preconditions:  none.
-  Postconditions: none. '''
-'''
-  ORcond = [];
-  ANDcond = '';
-  query=re.sub(';','',query);
-  (oarr, oselect, owhere, ofrom,ocross) = select_from_where_nosubquery(query);
-  conditions = re.split('[\s]+(AND|OR)[\s]+', owhere);
-  for entry in range(len(conditions)):
-    if(entry==0):
-      ANDcond += conditions[entry];
-    elif(conditions[entry]=='OR'):
-      ORcond.append(conditions[entry+1]);
-      entry += 1;
-    elif(conditions[entry]=='AND'):
-      ANDcond += ' AND ' + conditions[entry+1];
-      entry += 1;
-  #  ORcond = re.split('[\s]+OR[\s]+',conditions[entry]);
-  ##print('ORcond: ', ORcond, 'ANDwOR: ', conditions);
-  query='SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + ANDcond;
-  ##print(query)
-  for entry in range(len(ORcond)):
-    query += '\n UNION ' + ' SELECT ' + oselect + ' FROM ' + ofrom + ' WHERE ' + ORcond[entry];
-  query +=';';
-  ##print(query);
-  return query;
-'''
 ################################################################################
 
 def decorrelate_conjunctive(query,schema):
@@ -578,81 +613,132 @@ def decorrelate_conjunctive(query,schema):
 
   to_union = [];
   rel_alg = '';
-  #print(query);
-  #print('175', query);
+
+  # obtain information about the top-level query
   (oarr, oselect, owhere, ofrom,ocross) = select_from_where_nosubquery(query);
-  #
-  #print(237,ofrom);
-  if hasSubquery(query): #make sure we're working from innermost query
+
+  # if there is a subquery
+  if hasSubquery(query):
+
+    # get the subquery and obtain information about it
     subquery = getNextSubQuery(query);
     (iarr, iselect, iwhere, ifrom, icross) = select_from_where_nosubquery(subquery);
 
-  owhere_arr = re.split('[\s]+AND[\s]+', owhere);
-  #print(owhere_arr)
-  for entry in owhere_arr: # go through and decorrelate each EXISTS/NOT EXISTS query
+  # split the where-list at ANDs into subwheres
+  owhere_arr = re.split('\s+AND\s+', owhere);
+
+  # for each subwhere in the where-list
+  # go through and decorrelate each EXISTS/NOT EXISTS query
+  for entry in owhere_arr: 
+    
+    # if the subwhere is not an EXISTS/NOT EXISTS statement, then it is a
+    # subquery-free-part and there is no need to add more tables to the from-list
+    # simply add it to the subquery free part if it already exists
     if 'EXISTS' not in entry:
-      #print('subquery free part is', entry);
       if subquery_free_part == '':
-        subquery_free_part = entry #no need to add more tables to from list
+        subquery_free_part = entry
       else:
         subquery_free_part += ' AND ' + entry;
-    elif 'NOT EXISTS' in entry:
-      #print 'exists found';
-      #print('subquery: ', subquery);
-      #print(ifrom);
 
+
+    # if the subwhere is a NOT EXISTS statement, then we need to do some special
+    # relational algebra
+    elif 'NOT EXISTS' in entry:
+
+      # find all context relations (using RENAMEALL)
       context_relations = re.findall('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', ifrom);
       attrs = '';
+
+      # for each context relation
       for rel in context_relations:
+
         table_name = rel[rel.index('(')+1:rel.index(')')];
         rename = rel[rel.index('{') + 1:rel.index('}')];
+        
+        # add the attributes of the context relation
         attrs += getParameters(schema, table_name, rename)
-        #anti join
-        natty_join = 'MINUS(' + from_list_to_relalg(ofrom) + ',NATURALJOIN(' + from_list_to_relalg(ofrom) + ',' + 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + '))';
-        #print(rel_alg);
+        
+        ofrom_relalg = from_list_to_relalg(ofrom);
+        ifrom_relalg = from_list_to_relalg(ifrom);
+
+        # ofrom - [ ofrom |><| PROJECT_{cxt. rel. attrs}(SELECT_{iwhere}(ifrom)) ]
+        minus_first = ofrom_relalg;
+        minus_nj_first = ofrom_relalg;
+        minus_nj_second = 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + ifrom_relalg + '))';
+        minus_second = 'NATURALJOIN(' + minus_nj_first + ',' + minus_nj_second + ')';
+        natty_join = 'MINUS(' + minus_first + ',' + minus_second + ')';
+
+        # add this entry to an array of all NOT EXISTS relalgs
         notexists += [natty_join];
 
-    elif 'EXISTS' in entry:
-      #print 'exists found';
-      #print('subquery: ', subquery);
-      #print(ifrom);
 
+    # if the subwhere is an EXISTS statement, then we need to do some special
+    # relational algebra
+    elif 'EXISTS' in entry:
+
+      # find all context relations (using RENAMEALL)
       context_relations = re.findall('RENAMEALL_\{[\w\d]+\}\([\w\d]+\)', ifrom);
       attrs = '';
+
+      # for each context relation
       for rel in context_relations:
+
         table_name = rel[rel.index('(')+1:rel.index(')')];
         rename = rel[rel.index('{') + 1:rel.index('}')];
+        
+        # add the attributes of the context relation
         attrs += getParameters(schema, table_name, rename)
 
-        print(568,from_list_to_relalg(ofrom))
-        print(569,from_list_to_relalg(ifrom))
-        natty_join = 'NATURALJOIN(' + from_list_to_relalg(ofrom) + ',' + 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + ')))';
+        # print(568,from_list_to_relalg(ofrom))
+        # print(569,from_list_to_relalg(ifrom))
+
+        # ofrom |><| PROJECT_{cxt. rel. attrs}(SELECT_{iwhere}(ifrom))
+        nj_first = from_list_to_relalg(ofrom);
+        nj_second = 'PROJECT_{' + str(attrs) + '}(SELECT_{' + iwhere + '}('  + from_list_to_relalg(ifrom) + '))';
+        natty_join = 'NATURALJOIN(' + nj_first + ',' + nj_second + ')';
+        
+        # add this entry to an array of all EXISTS relalgs
         exists += [natty_join];
     
-
+  # for any relational algebra created from EXISTS/NOT EXISTS statements
   for join in (exists + notexists):
+
+    # apply the top-level query projection on the selection of the subquery free
+    # part acting on the relational algebra join created prior, and add it to an
+    # array to be intersected later
     to_union += ['PROJECT_{' + oselect + '}(' + 'SELECT_{' + subquery_free_part + '}(' + join + '))'];
 
+  ### COMMENTS
+  # if there were no EXISTS/NOT EXISTS statements, return simple statement
   if len(to_union) == 0:
     return relalg(oselect, ofrom, owhere);
     return to_union[0];
+
+  # otherwise, (if there were EXISTS/NOT EXISTS)
   else:
+
+    # intersect every relational algebra created from EXISTS/NOT EXISTS
     rel_alg = to_union[0];
     for i in range(1, len(to_union)):
-      rel_alg = 'UNION(' + to_union[i] + ',' + rel_alg + ')';
+      rel_alg = 'INTERSECT(' + to_union[i] + ',' + rel_alg + ')';
+
+    # return the intersection
     return rel_alg;
-        #print(rel_alg);
-                      #(ofrom list) natural join proj')ect(context_relations on inner query)select(where_list)(on (cross product of inner-from)
-    # if the entry does not contain EXISTS or NOT EXISTS
-    #remove select list from subquery
-  #translate the subquery free part
-  #translate the exists
-  #translate the not exists
-  #apply the projection of the sle
-  #'\w+[\w\d]*'
 
+################################################################################
 
-  ###print('subquery: ', subquery);
-  ###print('subquery_free_part: ', subquery_free_part);
-  ###print('relalg:', rel_alg); 
-  #return rel_alg;
+def query_into_relational_algebra(query, sch):
+
+  intermediate = query;
+  print('### 770 ###: ' + intermediate);
+
+  intermediate = normalize_with_ands(intermediate);
+  print('### 772 ###: ' + intermediate);
+
+  intermediate = fix_all_correlated_subquery(intermediate, sch);
+  print('### 774 ###: ' + intermediate);
+
+  intermediate = decorrelate_conjunctive(intermediate, sch);
+  print('### 776 ###: ' + intermediate);
+
+  return intermediate;
