@@ -183,7 +183,7 @@ else:
       createTreeImage(tree_string, tree_name);
       #print('__180');
       # save the query in a data file
-      fileObj = open(tree_name + '.dat', 'wb');
+      fileObj = open(tree_name + '.dat', 'w');
       #print('__183');
       fileObj.write(entry);
       #print('__185');

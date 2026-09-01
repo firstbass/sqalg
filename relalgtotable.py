@@ -246,7 +246,7 @@ def createTreeImage(query, image_name):
     Preconditions:  
     Postconditions:  '''
 
-    tree_text = unicode(json.dumps(createTree(query)));
+    tree_text = str(json.dumps(createTree(query)));
     with io.open(JSON_TEMP_FILENAME, 'w', encoding='utf-8') as fileObj:
         fileObj.write(tree_text);
     check_output(PHANTOMJS_EXE_URL + ' ' + FUNCTION_FILE + ' "' + image_name + '"')
