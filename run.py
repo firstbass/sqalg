@@ -171,9 +171,7 @@ else:
 
   # selects queries presented to us of the form (a. ----- ;)
   for entry in re.findall('\w\.\s+(.+?)\;',document):
-    if count < 1:
-      count = count + 1;
-      continue;
+    
     # in the event that an error arises, we exit the current query's execution
     # and move on to the next without any output for the erroring query
     try:
@@ -209,4 +207,4 @@ else:
     # no matter what, make sure we move on to the next query
     finally:
       count += 1;
-      raw_input('Press enter (' + str(count-1) + ')...');
+      #raw_input('Press enter (' + str(count-1) + ')...');
